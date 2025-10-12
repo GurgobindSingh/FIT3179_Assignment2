@@ -3,10 +3,10 @@
   "width": 900,
   "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Homework10/main/housing_prices.csv",
+    "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/house_type_lollipop_chart.csv",
     "format": {
       "type": "csv",
-      "parse": {"Year": "number", "Price": "number", "Type": "string"}
+      "parse": {"Year": "number", "Price": "number", "House_Type": "string"}
     }
   },
   "title": {
@@ -39,20 +39,20 @@
       "mark": {"type": "rule", "color": "#B0BEC5", "strokeWidth": 2},
       "encoding": {
         "x": {
-          "field": "Type",
+          "field": "House_Type",
           "type": "nominal",
           "title": "Property Type",
           "sort": {"field": "Price", "order": "descending"},
           "axis": {"labelAngle": -20, "labelFontSize": 11}
         },
         "y": {"value": 0},
-        "y2": {"field": "Price"}
+        "y2": {"field": "Price", "type": "quantitative"}
       }
     },
     {
       "mark": {"type": "circle", "size": 150},
       "encoding": {
-        "x": {"field": "Type", "type": "nominal"},
+        "x": {"field": "House_Type", "type": "nominal"},
         "y": {
           "field": "Price",
           "type": "quantitative",
@@ -68,7 +68,7 @@
           "value": "#90A4AE"
         },
         "tooltip": [
-          {"field": "Type", "title": "Property Type"},
+          {"field": "House_Type", "title": "Property Type"},
           {"field": "Year", "title": "Year"},
           {"field": "Price", "title": "Average Price (RM)", "format": ",.0f"},
           {"field": "rank_desc", "title": "Rank"}
@@ -86,8 +86,8 @@
         "fill": "black"
       },
       "encoding": {
-        "x": {"field": "Type"},
-        "y": {"field": "Price"},
+        "x": {"field": "House_Type", "type": "nominal"},
+        "y": {"field": "Price", "type": "quantitative"},
         "text": {"value": "Most Expensive"}
       }
     },
@@ -102,8 +102,8 @@
         "fill": "black"
       },
       "encoding": {
-        "x": {"field": "Type"},
-        "y": {"field": "Price"},
+        "x": {"field": "House_Type", "type": "nominal"},
+        "y": {"field": "Price", "type": "quantitative"},
         "text": {"value": "Most Affordable"}
       }
     },
@@ -132,7 +132,7 @@
         "cornerRadius": 5,
         "padding": 5
       },
-      "encoding": {"text": {"field": "event"}}
+      "encoding": {"text": {"field": "event", "type": "nominal"}}
     }
   ]
 }

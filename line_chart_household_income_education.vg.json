@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Household Income and Education Completion Trends (2016-2022)",
+    "fontSize": 16,
+    "font": "Arial",
+    "anchor": "middle"
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/line_chart_household_income_education.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.variable === 'Median Household Income (RM)' ? 'Income' : datum.variable === 'Primary Completion (%)' ? 'Primary' : datum.variable === 'Lower Secondary Completion (%)' ? 'Lower Secondary' : 'Upper Secondary'",
+      "as": "category"
+    },
+    {
+      "calculate": "datum.variable === 'Median Household Income (RM)' ? 'Household Income' : 'Education Completion'",
+      "as": "measure_type"
+    }
+  ],
+  "layer": [
+    {
+      "transform": [{"filter": "datum.measure_type === 'Education Completion'"}],
+      "mark": {"type": "line", "point": true, "strokeWidth": 2},
+      "encoding": {
+        "x": {
+          "field": "year ",
+          "type": "temporal",
+          "timeUnit": "year",
+          "axis": {"title": "Year", "format": "%Y", "labelAngle": 0}
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "axis": {
+            "title": "Completion Rate (%)",
+            "titleColor": "#000000"
+          },
+          "scale": {"domain": [90, 100]}
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Primary", "Lower Secondary", "Upper Secondary", "Income"],
+            "range": ["#0072B2", "#E69F00", "#56B4E9", "#000000"]
+          },
+          "legend": {"title": "Category", "orient": "right", "offset": 10}
+        },
+        "tooltip": [
+          {
+            "field": "year ",
+            "type": "temporal",
+            "timeUnit": "year",
+            "title": "Year",
+            "format": "%Y"
+          },
+          {"field": "category", "type": "nominal", "title": "Level"},
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Completion Rate (%)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.measure_type === 'Household Income'"}],
+      "mark": {
+        "type": "line",
+        "point": {"filled": true, "size": 100},
+        "strokeWidth": 3,
+        "strokeDash": [5, 5]
+      },
+      "encoding": {
+        "x": {"field": "year ", "type": "temporal", "timeUnit": "year"},
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "axis": {
+            "title": "Median Household Income (RM)",
+            "titleColor": "#000000",
+            "orient": "right"
+          },
+          "scale": {"domain": [5000, 6500]}
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Primary", "Lower Secondary", "Upper Secondary", "Income"],
+            "range": ["#0072B2", "#E69F00", "#56B4E9", "#000000"]
+          },
+          "legend": {"title": "Category", "orient": "right", "offset": 10}
+        },
+        "tooltip": [
+          {
+            "field": "year ",
+            "type": "temporal",
+            "timeUnit": "year",
+            "title": "Year",
+            "format": "%Y"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Median Income (RM)",
+            "format": ",.2f"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"grid": true, "gridOpacity": 0.3}
+  }
+}

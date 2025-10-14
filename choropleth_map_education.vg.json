@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 1000,
+  "height": 600,
+  "title": {
+    "text": "Education Completion Rate by State, Malaysia",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "anchor": "start"
+  },
+  "projection": {"type": "equalEarth"},
+  "params": [
+    {
+      "name": "selected_year",
+      "value": 2022,
+      "bind": {
+        "input": "select",
+        "options": [2016, 2017, 2019, 2020, 2022],
+        "labels": ["2016", "2017", "2019", "2020", "2022"],
+        "name": "Select Year: "
+      }
+    },
+    {
+      "name": "selected_stage",
+      "value": "secondary_upper",
+      "bind": {
+        "input": "select",
+        "options": ["primary", "secondary_lower", "secondary_upper"],
+        "labels": ["Primary", "Lower Secondary", "Upper Secondary"],
+        "name": "Education Stage: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/malaysia_map.topojson",
+        "format": {"type": "topojson", "feature": "ne_10m_graticules_1"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#cccccc",
+        "strokeWidth": 0.5,
+        "fill": null
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/choropleth_map_education.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {
+          "filter": "toNumber(datum.year) == selected_year"
+        },
+        {
+          "filter": "datum.stage == selected_stage"
+        },
+        {
+          "filter": "datum.sex == 'both'"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/malaysia_map.topojson",
+              "format": {"type": "topojson", "feature": "my"}
+            },
+            "key": "properties.name"
+          },
+          "as": "geo"
+        },
+        {
+          "calculate": "toNumber(datum['completion'])",
+          "as": "Completion_Rate"
+        },
+        {
+          "calculate": "datum['Completion_Rate'] < 97 ? '95–97%' : datum['Completion_Rate'] < 98 ? '97–98%' : datum['Completion_Rate'] < 99 ? '98–99%' : datum['Completion_Rate'] < 100 ? '99–100%' : '100–103%'",
+          "as": "Completion_Level"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.5},
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "Completion_Level",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "95–97%",
+              "97–98%",
+              "98–99%",
+              "99–100%",
+              "100–103%"
+            ],
+            "range": ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]
+          },
+          "legend": {
+            "title": "Education Completion Rate",
+            "titleFontSize": 14,
+            "labelFontSize": 12,
+            "symbolSize": 400,
+            "orient": "right",
+            "direction": "vertical",
+            "offset": 20
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "Completion_Rate", "type": "quantitative", "format": ".2f", "title": "Completion Rate (%)"},
+          {"field": "Completion_Level", "type": "nominal", "title": "Completion Level"},
+          {"field": "stage", "type": "nominal", "title": "Education Stage"},
+          {"field": "year", "type": "ordinal", "title": "Year"}
+        ]
+      }
+    }
+  ]
+}

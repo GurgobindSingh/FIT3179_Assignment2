@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 1000,
+  "height": 600,
+  "title": {
+    "text": "Median Household Income by State, Malaysia (Select Year)",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "anchor": "start"
+  },
+  "projection": {"type": "equalEarth"},
+  "params": [
+    {
+      "name": "selected_year",
+      "value": 2022,
+      "bind": {
+        "input": "select",
+        "options": [2016, 2019, 2020, 2022],
+        "labels": ["2016", "2019", "2020", "2022"],
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/malaysia_map.topojson",
+        "format": {"type": "topojson", "feature": "ne_10m_graticules_1"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#cccccc",
+        "strokeWidth": 0.5,
+        "fill": null
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/choropleth_map_household_income.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {
+          "filter": "toNumber(datum.year) == selected_year"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/malaysia_map.topojson",
+              "format": {"type": "topojson", "feature": "my"}
+            },
+            "key": "properties.name"
+          },
+          "as": "geo"
+        },
+        {
+          "calculate": "toNumber(datum['income_median'])",
+          "as": "Median_Income"
+        },
+        {
+          "calculate": "datum['Median_Income'] <= 4000 ? 'Low (≤ RM4k)' : datum['Median_Income'] <= 6000 ? 'Lower-Middle (RM4k–6k)' : datum['Median_Income'] <= 8000 ? 'Upper-Middle (RM6k–8k)' : datum['Median_Income'] <= 10000 ? 'High (RM8k–10k)' : 'Very High (> RM10k)'",
+          "as": "Income_Level"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.5},
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "Income_Level",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "Low (≤ RM4k)",
+              "Lower-Middle (RM4k–6k)",
+              "Upper-Middle (RM6k–8k)",
+              "High (RM8k–10k)",
+              "Very High (> RM10k)"
+            ],
+            "range": ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]
+          },
+          "legend": {
+            "title": "Median Household Income (RM)",
+            "titleFontSize": 14,
+            "labelFontSize": 12,
+            "symbolSize": 400,
+            "orient": "right",
+            "direction": "vertical",
+            "offset": 20
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "Median_Income", "type": "quantitative", "format": ",", "title": "Median Income (RM)"},
+          {"field": "Income_Level", "type": "nominal", "title": "Income Category"},
+          {"field": "year", "type": "ordinal", "title": "Year"}
+        ]
+      }
+    }
+  ]
+}

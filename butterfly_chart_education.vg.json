@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Butterfly chart showing average education completion rates for male and female across different education stages",
+  "vconcat": [
+    {
+      "width": 500,
+      "height": 40,
+      "data": {
+        "values": [
+          {"text": "Average Education Completion Rates ", "x": 20, "color": "#000000"},
+          {"text": "Male", "x": 275, "color": "#4A90E2"},
+          {"text": " vs ", "x": 310, "color": "#000000"},
+          {"text": "Female", "x": 330, "color": "#E94B8A"},
+          {"text": " (2016-2022)", "x": 382, "color": "#000000"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "baseline": "middle",
+        "align": "left"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "axis": null, "scale": {"domain": [0, 500]}},
+        "y": {"datum": 20, "type": "quantitative", "axis": null},
+        "text": {"field": "text", "type": "nominal"},
+        "color": {"field": "color", "type": "nominal", "scale": null, "legend": null}
+      }
+    },
+    {
+      "width": 400,
+      "height": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/butterfly_chart_education.csv"
+      },
+  "transform": [
+    {
+      "calculate": "datum.sex === 'male' ? -datum['average completion rate'] : datum['average completion rate']",
+      "as": "signed_rate"
+    },
+    {
+      "calculate": "datum.stage === 'primary' ? 'Primary' : datum.stage === 'secondary_lower' ? 'Secondary (Lower)' : 'Secondary (Upper)'",
+      "as": "stage_label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "stage_label",
+          "type": "nominal",
+          "axis": null,
+          "sort": ["Primary", "Secondary (Lower)", "Secondary (Upper)"]
+        },
+        "x": {
+          "field": "signed_rate",
+          "type": "quantitative",
+          "axis": {
+            "title": "Average Completion Rate (%)",
+            "labelExpr": "abs(datum.value)",
+            "labelFontSize": 10,
+            "tickCount": 10
+          },
+          "scale": {
+            "domain": [-100, 100],
+            "nice": false
+          }
+        },
+        "color": {
+          "field": "sex",
+          "type": "nominal",
+          "scale": {
+            "domain": ["male", "female"],
+            "range": ["#4A90E2", "#E94B8A"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "sex",
+            "type": "nominal",
+            "title": "Gender"
+          },
+          {
+            "field": "stage_label",
+            "type": "nominal",
+            "title": "Education Stage"
+          },
+          {
+            "field": "average completion rate",
+            "type": "quantitative",
+            "title": "Completion Rate (%)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [{"op": "max", "field": "stage_label", "as": "stage_label"}],
+          "groupby": ["stage_label"]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "fontWeight": "bold",
+        "fontSize": 11
+      },
+      "encoding": {
+        "y": {
+          "field": "stage_label",
+          "type": "nominal",
+          "sort": ["Primary", "Secondary (Lower)", "Secondary (Upper)"]
+        },
+        "x": {
+          "datum": 0,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "stage_label",
+          "type": "nominal"
+        }
+      }
+    }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.3
+    }
+  }
+}

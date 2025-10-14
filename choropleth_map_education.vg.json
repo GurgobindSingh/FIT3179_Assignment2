@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 1000,
-  "height": 600,
   "title": {
     "text": "Education Completion Rate by State, Malaysia",
     "fontSize": 20,
     "fontWeight": "bold",
     "anchor": "start"
   },
+  "width": 1000,
+  "height": 600,
   "projection": {"type": "equalEarth"},
   "params": [
     {
@@ -115,6 +115,102 @@
           {"field": "stage", "type": "nominal", "title": "Education Stage"},
           {"field": "year", "type": "ordinal", "title": "Year"}
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": 101.7, "lat": 3.15, "label": "★ KL", "stage": "primary"}
+        ]
+      },
+      "transform": [
+        {"filter": "selected_stage == 'primary'"},
+        {"filter": "selected_year == 2019 || selected_year == 2016"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": -10,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "stroke": "#000000",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": 102.25, "lat": 6.13, "label": "★ Kelantan 109%!", "stage": "secondary_upper"}
+        ]
+      },
+      "transform": [
+        {"filter": "selected_stage == 'secondary_upper'"},
+        {"filter": "selected_year == 2019"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 10,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "stroke": "#000000",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"year": 2016, "stage": "primary", "annotation": "💡 Strong primary education: Most states >99% completion", "lon": 101.5, "lat": 7.5},
+          {"year": 2016, "stage": "secondary_lower", "annotation": "💡 Lower secondary challenge: Labuan 78%, Sabah 90%", "lon": 101.5, "lat": 7.5},
+          {"year": 2016, "stage": "secondary_upper", "annotation": "💡 Upper secondary gap: Perlis 91%, Putrajaya 109%", "lon": 101.5, "lat": 7.5},
+          {"year": 2017, "stage": "primary", "annotation": "💡 Primary excellence maintained across all states", "lon": 101.5, "lat": 7.5},
+          {"year": 2017, "stage": "secondary_lower", "annotation": "💡 Remarkable improvement: Labuan jumps to 99%, Putrajaya leads 108%", "lon": 101.5, "lat": 7.5},
+          {"year": 2017, "stage": "secondary_upper", "annotation": "💡 Pahang faces challenges: Drops to 90.8% completion", "lon": 101.5, "lat": 7.5},
+          {"year": 2019, "stage": "primary", "annotation": "💡 Primary steady: KL lowest at 91.6%, most states near 100%", "lon": 101.5, "lat": 7.5},
+          {"year": 2019, "stage": "secondary_lower", "annotation": "💡 Federal territories excel: Putrajaya, Terengganu >100%", "lon": 101.5, "lat": 7.5},
+          {"year": 2019, "stage": "secondary_upper", "annotation": "💡 Notable: Kelantan surges to 109.2% completion rate!", "lon": 101.5, "lat": 7.5},
+          {"year": 2020, "stage": "primary", "annotation": "💡 COVID-19 starts: Primary rates remain strong >95%", "lon": 101.5, "lat": 7.5},
+          {"year": 2020, "stage": "secondary_lower", "annotation": "💡 Pandemic impact: Some states show slight decline", "lon": 101.5, "lat": 7.5},
+          {"year": 2020, "stage": "secondary_upper", "annotation": "💡 Major drop: Johor falls to 89.2%, pandemic disruption", "lon": 101.5, "lat": 7.5},
+          {"year": 2022, "stage": "primary", "annotation": "💡 Post-pandemic recovery: Primary education stabilizes", "lon": 101.5, "lat": 7.5},
+          {"year": 2022, "stage": "secondary_lower", "annotation": "💡 Bounce back: Most states return to 95-100% range", "lon": 101.5, "lat": 7.5},
+          {"year": 2022, "stage": "secondary_upper", "annotation": "💡 Recovery ongoing: Most states above 95%, gradual improvement", "lon": 101.5, "lat": 7.5}
+        ]
+      },
+      "transform": [
+        {"filter": "datum.year == selected_year"},
+        {"filter": "datum.stage == selected_stage"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#2c7bb6",
+        "dx": 5,
+        "dy": 5
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "annotation", "type": "nominal"}
       }
     }
   ]

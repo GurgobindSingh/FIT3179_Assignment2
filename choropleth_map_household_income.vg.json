@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 1000,
-  "height": 600,
   "title": {
     "text": "Median Household Income by State, Malaysia (Select Year)",
     "fontSize": 20,
     "fontWeight": "bold",
     "anchor": "start"
   },
+  "width": 1000,
+  "height": 600,
   "projection": {"type": "equalEarth"},
   "params": [
     {
@@ -98,6 +98,58 @@
           {"field": "Income_Level", "type": "nominal", "title": "Income Category"},
           {"field": "year", "type": "ordinal", "title": "Year"}
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"year": 2016, "annotation": "💡 Key Insight: KL leads at RM9,073, 3x higher than Kelantan (RM3,079) — Stark regional income disparity", "lon": 101.5, "lat": 7.5},
+          {"year": 2019, "annotation": "💡 Key Insight: Pre-pandemic peak — KL reaches RM10,549, income gap continues to widen", "lon": 101.5, "lat": 7.5},
+          {"year": 2020, "annotation": "💡 Key Insight: COVID-19 impact — Most states see income decline, particularly middle-income states", "lon": 101.5, "lat": 7.5},
+          {"year": 2022, "annotation": "💡 Key Insight: Recovery begins — KL at RM10,234, Selangor nearly RM10k, but rural gap remains", "lon": 101.5, "lat": 7.5}
+        ]
+      },
+      "transform": [
+        {"filter": "datum.year == selected_year"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#2c7bb6",
+        "dx": 5,
+        "dy": 5
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "annotation", "type": "nominal"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"lon": 102.25, "lat": 6.13, "label": "Lowest Income"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 10,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#000000",
+        "stroke": "#ffffff",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"}
       }
     }
   ]

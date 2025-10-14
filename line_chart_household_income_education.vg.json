@@ -6,8 +6,8 @@
     "font": "Arial",
     "anchor": "middle"
   },
-  "width": 600,
-  "height": 400,
+  "width": 650,
+  "height": 420,
   "data": {
     "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/line_chart_household_income_education.csv"
   },
@@ -21,24 +21,27 @@
       "as": "measure_type"
     }
   ],
+  "encoding": {
+    "x": {
+      "field": "year ",
+      "type": "temporal",
+      "timeUnit": "year",
+      "axis": {
+        "title": "Year",
+        "format": "%Y",
+        "labelAngle": 0
+      }
+    }
+  },
   "layer": [
     {
       "transform": [{"filter": "datum.measure_type === 'Education Completion'"}],
       "mark": {"type": "line", "point": true, "strokeWidth": 2},
       "encoding": {
-        "x": {
-          "field": "year ",
-          "type": "temporal",
-          "timeUnit": "year",
-          "axis": {"title": "Year", "format": "%Y", "labelAngle": 0}
-        },
         "y": {
           "field": "value",
           "type": "quantitative",
-          "axis": {
-            "title": "Completion Rate (%)",
-            "titleColor": "#000000"
-          },
+          "axis": {"title": "Completion Rate (%)", "titleColor": "#000000"},
           "scale": {"domain": [90, 100]}
         },
         "color": {
@@ -51,20 +54,9 @@
           "legend": {"title": "Category", "orient": "right", "offset": 10}
         },
         "tooltip": [
-          {
-            "field": "year ",
-            "type": "temporal",
-            "timeUnit": "year",
-            "title": "Year",
-            "format": "%Y"
-          },
+          {"field": "year ", "type": "temporal", "timeUnit": "year", "title": "Year", "format": "%Y"},
           {"field": "category", "type": "nominal", "title": "Level"},
-          {
-            "field": "value",
-            "type": "quantitative",
-            "title": "Completion Rate (%)",
-            "format": ".2f"
-          }
+          {"field": "value", "type": "quantitative", "title": "Completion Rate (%)", "format": ".2f"}
         ]
       }
     },
@@ -77,7 +69,6 @@
         "strokeDash": [5, 5]
       },
       "encoding": {
-        "x": {"field": "year ", "type": "temporal", "timeUnit": "year"},
         "y": {
           "field": "value",
           "type": "quantitative",
@@ -98,20 +89,67 @@
           "legend": {"title": "Category", "orient": "right", "offset": 10}
         },
         "tooltip": [
-          {
-            "field": "year ",
-            "type": "temporal",
-            "timeUnit": "year",
-            "title": "Year",
-            "format": "%Y"
-          },
-          {
-            "field": "value",
-            "type": "quantitative",
-            "title": "Median Income (RM)",
-            "format": ",.2f"
-          }
+          {"field": "year ", "type": "temporal", "timeUnit": "year", "title": "Year", "format": "%Y"},
+          {"field": "category", "type": "nominal", "title": "Category"},
+          {"field": "value", "type": "quantitative", "title": "Median Income (RM)", "format": ",.2f"}
         ]
+      }
+    },
+    {
+      "data": {"values": [{"year ": "2019"}]},
+      "mark": {"type": "rule", "color": "gray", "strokeWidth": 2, "strokeDash": [4, 4]}
+    },
+    {
+      "data": {"values": [{"year ": "2019", "label": "Pre-Pandemic Peak"}]},
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -220,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "gray"
+      },
+      "encoding": {
+        "text": {"field": "label"}
+      }
+    },
+    {
+      "data": {"values": [{"year ": "2020"}]},
+      "mark": {"type": "rule", "color": "gray", "strokeWidth": 2, "strokeDash": [4, 4]}
+    },
+    {
+      "data": {"values": [{"year ": "2020", "label": "COVID-19 Pandemic"}]},
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -220,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "gray"
+      },
+      "encoding": {
+        "text": {"field": "label"}
+      }
+    },
+    {
+      "data": {"values": [{"year ": "2021"}]},
+      "mark": {"type": "rule", "color": "gray", "strokeWidth": 2, "strokeDash": [4, 4]}
+    },
+    {
+      "data": {"values": [{"year ": "2021", "label": "Post-Pandemic Recovery"}]},
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -220,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "gray"
+      },
+      "encoding": {
+        "text": {"field": "label"}
       }
     }
   ],

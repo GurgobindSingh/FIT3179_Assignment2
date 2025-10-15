@@ -4,8 +4,10 @@
     "text": "Income Inequality: Top 3 vs Bottom 3 States in Malaysia (2016-2022)",
     "fontSize": 16,
     "font": "Arial",
-    "anchor": "middle",
-    "color": "#333333"
+    "anchor": "start",
+    "color": "#333333",
+    "dx": 30,
+    "dy": 0
   },
   "width": 700,
   "height": 650,

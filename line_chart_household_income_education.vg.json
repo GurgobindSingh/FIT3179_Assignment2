@@ -4,9 +4,11 @@
     "text": "Household Income and Education Completion Trends (2016-2022)",
     "fontSize": 16,
     "font": "Arial",
-    "anchor": "middle"
+    "anchor": "start",
+    "dx": 30,
+    "dy": -10
   },
-  "width": 650,
+  "width": 700,
   "height": 420,
   "data": {
     "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/line_chart_household_income_education.csv"

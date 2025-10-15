@@ -9,7 +9,7 @@
     "dx": 30,
     "dy": 0
   },
-  "width": 1350,
+  "width": 700,
   "height": 650,
   "data": {
     "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/bump_chart_education.csv",
@@ -48,6 +48,7 @@
           "field": "year",
           "type": "ordinal",
           "title": "Year",
+          "scale": {"paddingInner": 0, "paddingOuter": 0.5},
           "axis": {
             "labelAngle": 0,
             "labelFontSize": 12,
@@ -94,7 +95,7 @@
     {
       "mark": {"type": "point", "filled": true, "size": 100, "opacity": 1},
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+        "x": {"field": "year", "type": "ordinal", "scale": {"paddingInner": 0, "paddingOuter": 0.5}},
         "y": {"field": "rank", "type": "quantitative"},
         "color": {
           "condition": [
@@ -125,7 +126,7 @@
       "mark": {"type": "text", "align": "right", "dx": -10, "fontSize": 10},
       "transform": [{"filter": "datum.year == 2016"}],
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+        "x": {"field": "year", "type": "ordinal", "scale": {"paddingInner": 0, "paddingOuter": 0.5}},
         "y": {"field": "rank", "type": "quantitative"},
         "text": {"field": "state", "type": "nominal"},
         "color": {
@@ -142,7 +143,7 @@
       "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 10},
       "transform": [{"filter": "datum.year == 2022"}],
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+        "x": {"field": "year", "type": "ordinal", "scale": {"paddingInner": 0, "paddingOuter": 0.5}},
         "y": {"field": "rank", "type": "quantitative"},
         "text": {"field": "state", "type": "nominal"},
         "color": {
@@ -164,7 +165,7 @@
         "opacity": 0.6
       },
       "data": {"values": [{"year": 2020}]},
-      "encoding": {"x": {"field": "year", "type": "ordinal"}}
+      "encoding": {"x": {"field": "year", "type": "ordinal", "scale": {"paddingInner": 0, "paddingOuter": 0.5}}}
     },
     {
       "mark": {
@@ -181,7 +182,7 @@
         ]
       },
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+        "x": {"field": "year", "type": "ordinal", "scale": {"paddingInner": 0, "paddingOuter": 0.5}},
         "y": {"field": "rank", "type": "quantitative"},
         "text": {"field": "text", "type": "nominal"}
       }

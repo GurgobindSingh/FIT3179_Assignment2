@@ -3,7 +3,7 @@
   "description": "Butterfly chart showing average education completion rates for male and female across different education stages",
   "vconcat": [
     {
-      "width": 500,
+      "width": 700,
       "height": 40,
       "data": {
         "values": [
@@ -22,14 +22,14 @@
         "align": "left"
       },
       "encoding": {
-        "x": {"field": "x", "type": "quantitative", "axis": null, "scale": {"domain": [0, 500]}},
+        "x": {"field": "x", "type": "quantitative", "axis": null, "scale": {"domain": [0, 700]}},
         "y": {"datum": 20, "type": "quantitative", "axis": null},
         "text": {"field": "text", "type": "nominal"},
         "color": {"field": "color", "type": "nominal", "scale": null, "legend": null}
       }
     },
     {
-      "width": 400,
+      "width": 700,
       "height": 200,
       "data": {
         "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/butterfly_chart_education.csv"

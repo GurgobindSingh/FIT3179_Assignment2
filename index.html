@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysia's Socioeconomic Landscape: Income & Education Analysis (2016-2022)</title>
+    
+    <!-- Vega-Lite libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            -webkit-text-size-adjust: 100%;
+            background-color: #f5f5f5;
+            font-family: "Montserrat", sans-serif;
+            color: #333;
+        }
+
+        /* Top banner */
+        .top-banner {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            max-width: 1920px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            padding: 16px 10px;
+            color: #222;
+            letter-spacing: 0.5px;
+            font-size: 42px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        /* Main content wrapper */
+        main {
+            display: block;
+            padding: 20px;
+            max-width: 1920px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        /* Introduction section */
+        .intro-section {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        .intro-section p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* Two-column layout for chart + explanation */
+        .viz-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .viz-chart {
+            flex: 1 1 65%;
+            max-width: 1320px;
+            padding-right: 24px;
+            padding-top: 16px;
+            box-sizing: border-box;
+        }
+
+        .viz-text {
+            flex: 1 1 35%;
+            max-width: 500px;
+            line-height: 1.6;
+            padding-top: 16px;
+            color: #333;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        /* Full width layout for wider charts */
+        .viz-row-full {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .viz-chart-full {
+            flex: 1 1 100%;
+            max-width: 1856px;
+            padding-right: 10px;
+            padding-top: 16px;
+            box-sizing: border-box;
+        }
+
+        .viz-question {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .viz-description {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .viz-insights {
+            background-color: #fff9e6;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .viz-insights h4 {
+            color: #f57c00;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .viz-insights ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .viz-insights li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Metadata section */
+        .metadata-section {
+            background-color: #e8f5e9;
+            padding: 40px;
+            margin-top: 60px;
+            border: 2px solid #4caf50;
+        }
+        
+        .metadata-section h2 {
+            color: #2e7d32;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .metadata-item {
+            background-color: white;
+            padding: 20px;
+            border-left: 3px solid #4caf50;
+        }
+        
+        .metadata-item h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .metadata-item p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .author-info {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: white;
+        }
+
+        .author-info h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .author-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .author-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: white;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+        /* Ensure embed respects container width */
+        .viz-chart .vega-embed, 
+        .viz-chart .vega-embed > div,
+        .viz-chart-full .vega-embed,
+        .viz-chart-full .vega-embed > div {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1920px) {
+            .top-banner { font-size: 36px; }
+            main { padding: 12px; }
+        }
+
+        @media (max-width: 1400px) {
+            .viz-row, .viz-row-full { 
+                flex-direction: column; 
+            }
+            .viz-text { 
+                max-width: none; 
+            }
+            .viz-chart {
+                max-width: 100%;
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .top-banner { font-size: 28px; }
+            .intro-section { padding: 30px 25px; }
+            .viz-row, .viz-row-full { padding: 25px; }
+        }
+
+        @media (max-width: 768px) {
+            .top-banner { font-size: 24px; }
+            .intro-section { padding: 20px; }
+            .viz-row, .viz-row-full { padding: 20px; }
+            .viz-question { font-size: 1.2em; }
+            .metadata-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top banner -->
+    <div class="top-banner">
+        Malaysia's Socioeconomic Landscape: Income & Education (2016-2022)
+    </div>
+    
+    <main>
+        <!-- Introduction -->
+        <section class="intro-section">
+            <h2>Understanding Malaysia's Regional Development</h2>
+            <p>
+                Malaysia's economic and educational landscape reveals a complex story of regional disparities and development patterns. 
+                This visualization explores the relationship between household income and upper secondary education completion rates across 
+                16 Malaysian states and federal territories from 2016 to 2022, a period that includes the significant disruption of the 
+                COVID-19 pandemic.
+            </p>
+            <p>
+                Through seven complementary visualizations, we examine how prosperity and education are distributed geographically, 
+                how they've evolved over time, and whether wealthier states necessarily translate to higher educational attainment. 
+                The findings reveal surprising patterns that challenge common assumptions about the income-education relationship.
+            </p>
+        </section>
+        
+        <!-- Chart 1: Line Chart -->
+        <div class="viz-row">
+            <div class="viz-chart">
+                <div id="line-chart"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">How have household income and education completion evolved over time?</div>
+                <div class="viz-description">
+                    This dual-axis line chart traces the parallel journeys of median household income and upper secondary education 
+                    completion rates from 2016 to 2022. The visualization reveals trends, disruptions, and the overall trajectory of 
+                    Malaysia's socioeconomic progress during this transformative period.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Both metrics show general upward trends with COVID-19 impact visible in 2020</li>
+                        <li>Education completion rates remain consistently high (>95%) across all years</li>
+                        <li>Income shows more volatility, reflecting economic sensitivity to external shocks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart 2: Choropleth Map - Household Income -->
+        <div class="viz-row">
+            <div class="viz-chart">
+                <div id="choropleth-income"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">Where are Malaysia's wealthiest and poorest states located?</div>
+                <div class="viz-description">
+                    This interactive choropleth map visualizes the geographic distribution of median household income across Malaysian 
+                    states. The color intensity represents income levels, immediately revealing patterns of wealth concentration and 
+                    regional economic disparities. Use the year selector to observe how these patterns shift over time.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Federal territories (Kuala Lumpur, Putrajaya) consistently show highest incomes</li>
+                        <li>Selangor benefits from proximity to federal territories</li>
+                        <li>East Coast states (Kelantan, Terengganu) and northern states show lower income levels</li>
+                        <li>Geographic clustering of wealth is evident, particularly in central region</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart 3: Choropleth Map - Education -->
+        <div class="viz-row">
+            <div class="viz-chart">
+                <div id="choropleth-education"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">Which states excel in education completion, and does geography play a role?</div>
+                <div class="viz-description">
+                    This choropleth map displays upper secondary education completion rates across states. Interestingly, the geographic 
+                    pattern differs significantly from income distribution, suggesting that educational access and quality are more evenly 
+                    distributed than economic prosperity. The year selector reveals temporal changes in educational achievement.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Education completion is remarkably uniform across states (95-100%)</li>
+                        <li>No clear geographic clustering - rural states perform as well as urban ones</li>
+                        <li>Putrajaya leads, but the gap with other states is minimal</li>
+                        <li>Federal territories don't dominate education as they do income</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart 4: Dumbbell Chart -->
+        <div class="viz-row">
+            <div class="viz-chart">
+                <div id="dumbbell-chart"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">What is the gap between income and education achievement in each state?</div>
+                <div class="viz-description">
+                    The dumbbell chart provides a unique perspective by directly comparing normalized income and education scores for 
+                    each state. The length of each line represents the disparity between economic prosperity and educational attainment. 
+                    States with longer lines show greater imbalances - either high income but lower education (rare) or high education 
+                    but lower income (more common). The top three largest gaps are highlighted in gold, silver, and bronze.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Many states achieve high education despite moderate income levels</li>
+                        <li>The largest gaps reveal states punching above their economic weight in education</li>
+                        <li>Federal territories show relatively balanced income-education profiles</li>
+                        <li>Education is more equitably distributed than income across Malaysia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart 5: Bump Chart - Income -->
+        <div class="viz-row-full">
+            <div class="viz-chart-full">
+                <div id="bump-income"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">How have the richest and poorest states competed for position over time?</div>
+                <div class="viz-description">
+                    This bump chart tracks the ranking competition among Malaysia's top 3 and bottom 3 states by household income from 
+                    2016 to 2022. The gold, silver, and bronze lines highlight the wealthy federal territories and Selangor, while grey 
+                    lines show the persistently lower-income states. The vertical line marks 2020, when COVID-19 disrupted economic patterns. 
+                    Watch for ranking changes that reveal emerging economic powers or declining regions.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Kuala Lumpur maintains its position as the wealthiest state consistently</li>
+                        <li>Competition between Putrajaya and Selangor for second place</li>
+                        <li>Bottom 3 states (Kelantan, Kedah, Perak) show persistent low rankings</li>
+                        <li>Rankings remain relatively stable, indicating entrenched economic patterns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart 6: Bump Chart - Education -->
+        <div class="viz-row-full">
+            <div class="viz-chart-full">
+                <div id="bump-education"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">Which states lead and lag in education completion, and how stable are these rankings?</div>
+                <div class="viz-description">
+                    The education bump chart reveals a very different story from income rankings. With completion rates tightly clustered 
+                    between 97-102%, rankings are highly volatile and small changes create dramatic shifts. The top performers aren't 
+                    necessarily the wealthiest states, and the bottom performers still achieve remarkable completion rates. This chart 
+                    demonstrates Malaysia's success in providing universal access to upper secondary education.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Putrajaya consistently leads, though margin is small</li>
+                        <li>Much more ranking volatility than income - small differences matter</li>
+                        <li>Even "bottom 3" states achieve 97%+ completion rates</li>
+                        <li>COVID-19 impact less severe on education rankings than income</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chart 7: Butterfly Chart -->
+        <div class="viz-row">
+            <div class="viz-chart">
+                <div id="butterfly-chart"></div>
+            </div>
+            <div class="viz-text">
+                <div class="viz-question">How do states compare in both income and education simultaneously?</div>
+                <div class="viz-description">
+                    The butterfly chart provides the ultimate comparison tool, displaying each state's performance on both dimensions 
+                    side-by-side. States appear in the center with their income extending left and education extending right. This 
+                    mirror-image design instantly reveals four state categories: high-high achievers, income-rich but education-lagging, 
+                    education-rich but income-poor, and low performers on both metrics. Use the year selector to observe how states' 
+                    profiles evolve.
+                </div>
+                <div class="viz-insights">
+                    <h4>Key Insights:</h4>
+                    <ul>
+                        <li>Most states cluster at high education (right side) regardless of income</li>
+                        <li>Income variance is much greater than education variance</li>
+                        <li>Few states show both low income AND low education</li>
+                        <li>Malaysia's education policy successfully decouples education from wealth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 FIT3179 Data Visualisation Assignment 2 | Monash University</p>
+            <p>Data Source: Department of Statistics Malaysia (DOSM)</p>
+        </footer>
+    </main>
+    
+    <script>
+        // Embed all visualizations
+        
+        // Line Chart
+        vegaEmbed('#line-chart', 'line_chart_household_income_education.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+        
+        // Choropleth Map - Income
+        vegaEmbed('#choropleth-income', 'choropleth_map_household_income.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+        
+        // Choropleth Map - Education
+        vegaEmbed('#choropleth-education', 'choropleth_map_education.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+        
+        // Dumbbell Chart
+        vegaEmbed('#dumbbell-chart', 'dumbbell_chart_household_income_education.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+        
+        // Bump Chart - Income
+        vegaEmbed('#bump-income', 'bump_chart_household_income.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+        
+        // Bump Chart - Education
+        vegaEmbed('#bump-education', 'bump_chart_education.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+        
+        // Butterfly Chart
+        vegaEmbed('#butterfly-chart', 'butterfly_chart_education.vg.json', {
+            actions: {export: true, source: false, editor: false}
+        }).catch(console.error);
+    </script>
+</body>
+</html>

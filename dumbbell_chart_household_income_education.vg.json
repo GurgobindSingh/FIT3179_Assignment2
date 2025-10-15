@@ -139,7 +139,7 @@
               }
             },
             {
-              "mark": {"type": "point", "filled": true, "size": 150, "color": "#E69F00"},
+              "mark": {"type": "point", "filled": true, "size": 150, "color": "#E69F00", "opacity": 1},
               "encoding": {
                 "x": {"field": "completion_norm"},
                 "tooltip": [
@@ -164,7 +164,7 @@
               }
             },
             {
-              "mark": {"type": "point", "filled": true, "size": 150, "color": "#0072B2"},
+              "mark": {"type": "point", "filled": true, "size": 150, "color": "#0072B2", "opacity": 1},
               "encoding": {
                 "x": {"field": "income_median_norm"},
                 "tooltip": [

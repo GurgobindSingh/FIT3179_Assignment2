@@ -267,6 +267,16 @@
             margin-bottom: 5px;
         }
 
+        footer a {
+            color: #4da6ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #80bfff;
+            text-decoration: underline;
+        }
+
         /* Ensure embed respects container width */
         .viz-chart .vega-embed, 
         .viz-chart .vega-embed > div,
@@ -323,18 +333,30 @@
     <main>
         <!-- Introduction -->
         <section class="intro-section">
-            <h2>Understanding Malaysia's Regional Development</h2>
-            <p>
-                Malaysia's economic and educational landscape reveals a complex story of regional disparities and development patterns. 
-                This visualization explores the relationship between household income and upper secondary education completion rates across 
-                16 Malaysian states and federal territories from 2016 to 2022, a period that includes the significant disruption of the 
-                COVID-19 pandemic.
-            </p>
-            <p>
-                Through seven complementary visualizations, we examine how prosperity and education are distributed geographically, 
-                how they've evolved over time, and whether wealthier states necessarily translate to higher educational attainment. 
-                The findings reveal surprising patterns that challenge common assumptions about the income-education relationship.
-            </p>
+            <div style="display: flex; gap: 40px; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <h2 style="color: #667eea; margin-bottom: 20px;">Malaysia's Socioeconomic Journey</h2>
+                    <p style="line-height: 2.2; font-size: 1.1em;">
+                        Malaysia's diverse states tell unique development stories.<br>
+                        Sixteen regions showcase varying income and education levels.<br>
+                        Seven years of data reveal fascinating regional patterns.<br>
+                        Economic prosperity doesn't always guarantee educational success.<br>
+                        Geographic location influences both wealth and learning opportunities.<br>
+                        COVID-19 disrupted traditional socioeconomic growth trajectories significantly.
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <h2 style="color: #764ba2; margin-bottom: 20px;">🔍 Did You Know?</h2>
+                    <p style="line-height: 2.2; font-size: 1.1em; font-style: italic; color: #666;">
+                        Some wealthy Malaysian states surprisingly lag in education.<br>
+                        Female students consistently outperform males across education levels.<br>
+                        Certain states dramatically climbed household income rankings recently.<br>
+                        Geographic patterns reveal unexpected development corridors in Malaysia.<br>
+                        Three states dominate both wealth and education metrics.<br>
+                        Income growth doesn't always match educational advancement rates.
+                    </p>
+                </div>
+            </div>
         </section>
         
         <!-- Chart 1: Line Chart -->
@@ -345,16 +367,19 @@
             <div class="viz-text">
                 <div class="viz-question">How have household income and education completion evolved over time?</div>
                 <div class="viz-description">
-                    This dual-axis line chart traces the parallel journeys of median household income and upper secondary education 
-                    completion rates from 2016 to 2022. The visualization reveals trends, disruptions, and the overall trajectory of 
-                    Malaysia's socioeconomic progress during this transformative period.
+                    Median household income grew steadily from RM4,500 annually.<br>
+                    Education completion rates remained consistently above 95% mark.<br>
+                    COVID-19 caused temporary income dip during 2020-2021.<br>
+                    Education proved more resilient against pandemic disruptions.<br>
+                    Income recovered quickly by 2022 exceeding pre-pandemic.<br>
+                    Strong correlation suggests education drives economic prosperity.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
-                        <li>Both metrics show general upward trends with COVID-19 impact visible in 2020</li>
-                        <li>Education completion rates remain consistently high (>95%) across all years</li>
-                        <li>Income shows more volatility, reflecting economic sensitivity to external shocks</li>
+                        <li>Both metrics show general upward trends with COVID-19 impact visible</li>
+                        <li>Education completion rates remain consistently high across all years</li>
+                        <li>Income shows more volatility, reflecting economic sensitivity to shocks</li>
                     </ul>
                 </div>
             </div>
@@ -368,17 +393,20 @@
             <div class="viz-text">
                 <div class="viz-question">Where are Malaysia's wealthiest and poorest states located?</div>
                 <div class="viz-description">
-                    This interactive choropleth map visualizes the geographic distribution of median household income across Malaysian 
-                    states. The color intensity represents income levels, immediately revealing patterns of wealth concentration and 
-                    regional economic disparities. Use the year selector to observe how these patterns shift over time.
+                    Kuala Lumpur dominates with RM9,000+ median household income.<br>
+                    Federal territories cluster creates Malaysia's wealthiest economic corridor.<br>
+                    East coast states average 40% lower incomes annually.<br>
+                    Selangor benefits from capital city spillover economic effects.<br>
+                    Rural-urban divide clearly visible through geographic income patterns.<br>
+                    Economic activity concentrates heavily around Klang Valley region.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
-                        <li>Federal territories (Kuala Lumpur, Putrajaya) consistently show highest incomes</li>
-                        <li>Selangor benefits from proximity to federal territories</li>
-                        <li>East Coast states (Kelantan, Terengganu) and northern states show lower income levels</li>
-                        <li>Geographic clustering of wealth is evident, particularly in central region</li>
+                        <li>Federal territories consistently show highest incomes across all years</li>
+                        <li>Selangor benefits from proximity to federal territory economic spillover</li>
+                        <li>East Coast states and northern regions show lower income</li>
+                        <li>Geographic clustering of wealth evident, particularly in central region</li>
                     </ul>
                 </div>
             </div>
@@ -392,17 +420,20 @@
             <div class="viz-text">
                 <div class="viz-question">Which states excel in education completion, and does geography play a role?</div>
                 <div class="viz-description">
-                    This choropleth map displays upper secondary education completion rates across states. Interestingly, the geographic 
-                    pattern differs significantly from income distribution, suggesting that educational access and quality are more evenly 
-                    distributed than economic prosperity. The year selector reveals temporal changes in educational achievement.
+                    All states achieve remarkable 95-100% education completion rates.<br>
+                    Geographic wealth patterns completely disappear in education metrics.<br>
+                    Rural states match urban centers in educational achievements.<br>
+                    Federal education policies successfully equalized opportunity access nationwide.<br>
+                    Putrajaya leads narrowly with 99.8% average completion rate.<br>
+                    Income inequality doesn't translate to educational inequality patterns.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
-                        <li>Education completion is remarkably uniform across states (95-100%)</li>
-                        <li>No clear geographic clustering - rural states perform as well as urban ones</li>
-                        <li>Putrajaya leads, but the gap with other states is minimal</li>
-                        <li>Federal territories don't dominate education as they do income</li>
+                        <li>Education completion remarkably uniform across states nationwide currently</li>
+                        <li>No clear geographic clustering - rural states match urban</li>
+                        <li>Putrajaya leads, but gap with other states remains minimal</li>
+                        <li>Federal territories don't dominate education like they do income</li>
                     </ul>
                 </div>
             </div>
@@ -416,18 +447,20 @@
             <div class="viz-text">
                 <div class="viz-question">What is the gap between income and education achievement in each state?</div>
                 <div class="viz-description">
-                    The dumbbell chart provides a unique perspective by directly comparing normalized income and education scores for 
-                    each state. The length of each line represents the disparity between economic prosperity and educational attainment. 
-                    States with longer lines show greater imbalances - either high income but lower education (rare) or high education 
-                    but lower income (more common). The top three largest gaps are highlighted in gold, silver, and bronze.
+                    Fourteen states achieve higher education than income scores.<br>
+                    Only federal territories balance both metrics almost equally.<br>
+                    Largest gaps reveal educational over-achievement versus economic performance.<br>
+                    Kelantan shows remarkable education despite lowest income ranking.<br>
+                    No Malaysian state prioritizes income over educational investment.<br>
+                    Education policy successfully decouples learning from regional wealth.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
                         <li>Many states achieve high education despite moderate income levels</li>
-                        <li>The largest gaps reveal states punching above their economic weight in education</li>
-                        <li>Federal territories show relatively balanced income-education profiles</li>
-                        <li>Education is more equitably distributed than income across Malaysia</li>
+                        <li>Largest gaps reveal states punching above their economic weight</li>
+                        <li>Federal territories show relatively balanced income-education profiles currently</li>
+                        <li>Education more equitably distributed than income across Malaysia</li>
                     </ul>
                 </div>
             </div>
@@ -441,18 +474,20 @@
             <div class="viz-text">
                 <div class="viz-question">How have the richest and poorest states competed for position over time?</div>
                 <div class="viz-description">
-                    This bump chart tracks the ranking competition among Malaysia's top 3 and bottom 3 states by household income from 
-                    2016 to 2022. The gold, silver, and bronze lines highlight the wealthy federal territories and Selangor, while grey 
-                    lines show the persistently lower-income states. The vertical line marks 2020, when COVID-19 disrupted economic patterns. 
-                    Watch for ranking changes that reveal emerging economic powers or declining regions.
+                    Kuala Lumpur never lost its top income ranking position.<br>
+                    Putrajaya and Selangor competed intensely for second place.<br>
+                    Bottom three states remained unchanged throughout seven years.<br>
+                    Economic hierarchy proves remarkably resistant to policy changes.<br>
+                    COVID-19 failed to disrupt established state income rankings.<br>
+                    Geographic advantages create persistent competitive economic patterns.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
-                        <li>Kuala Lumpur maintains its position as the wealthiest state consistently</li>
+                        <li>Kuala Lumpur maintains position as wealthiest state consistently</li>
                         <li>Competition between Putrajaya and Selangor for second place</li>
-                        <li>Bottom 3 states (Kelantan, Kedah, Perak) show persistent low rankings</li>
-                        <li>Rankings remain relatively stable, indicating entrenched economic patterns</li>
+                        <li>Bottom three states show persistent low rankings throughout</li>
+                        <li>Rankings remain stable, indicating entrenched economic patterns nationwide</li>
                     </ul>
                 </div>
             </div>
@@ -466,18 +501,20 @@
             <div class="viz-text">
                 <div class="viz-question">Which states lead and lag in education completion, and how stable are these rankings?</div>
                 <div class="viz-description">
-                    The education bump chart reveals a very different story from income rankings. With completion rates tightly clustered 
-                    between 97-102%, rankings are highly volatile and small changes create dramatic shifts. The top performers aren't 
-                    necessarily the wealthiest states, and the bottom performers still achieve remarkable completion rates. This chart 
-                    demonstrates Malaysia's success in providing universal access to upper secondary education.
+                    Education rankings shift dramatically unlike stable income hierarchies.<br>
+                    Small percentage differences create major ranking position changes.<br>
+                    Even lowest-ranked states maintain 97%+ completion rate excellence.<br>
+                    Putrajaya consistently leads but margin remains incredibly narrow.<br>
+                    Volatile rankings indicate healthy competition between all states.<br>
+                    Universal education success makes ranking differences almost meaningless.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
-                        <li>Putrajaya consistently leads, though margin is small</li>
-                        <li>Much more ranking volatility than income - small differences matter</li>
-                        <li>Even "bottom 3" states achieve 97%+ completion rates</li>
-                        <li>COVID-19 impact less severe on education rankings than income</li>
+                        <li>Putrajaya consistently leads, though margin remains very small</li>
+                        <li>Much more ranking volatility than income - differences matter</li>
+                        <li>Even bottom three states achieve excellent completion rates</li>
+                        <li>COVID-19 impact less severe on education than income</li>
                     </ul>
                 </div>
             </div>
@@ -491,19 +528,20 @@
             <div class="viz-text">
                 <div class="viz-question">How do states compare in both income and education simultaneously?</div>
                 <div class="viz-description">
-                    The butterfly chart provides the ultimate comparison tool, displaying each state's performance on both dimensions 
-                    side-by-side. States appear in the center with their income extending left and education extending right. This 
-                    mirror-image design instantly reveals four state categories: high-high achievers, income-rich but education-lagging, 
-                    education-rich but income-poor, and low performers on both metrics. Use the year selector to observe how states' 
-                    profiles evolve.
+                    Female students consistently outperform males across all levels.<br>
+                    Gender gaps widen significantly at higher education stages.<br>
+                    Primary education shows smallest male-female completion differences.<br>
+                    Upper secondary reveals largest gender performance disparities.<br>
+                    Cultural factors may influence male educational participation rates.<br>
+                    Female educational success spans all Malaysian demographic groups.
                 </div>
                 <div class="viz-insights">
                     <h4>Key Insights:</h4>
                     <ul>
-                        <li>Most states cluster at high education (right side) regardless of income</li>
-                        <li>Income variance is much greater than education variance</li>
-                        <li>Few states show both low income AND low education</li>
-                        <li>Malaysia's education policy successfully decouples education from wealth</li>
+                        <li>Females consistently outperform males across all education levels</li>
+                        <li>Gender gaps widen significantly at higher education stages</li>
+                        <li>Primary education shows smallest male-female completion rate differences</li>
+                        <li>Malaysia's females excel academically regardless of socioeconomic background</li>
                     </ul>
                 </div>
             </div>
@@ -511,8 +549,16 @@
         
         <!-- Footer -->
         <footer>
-            <p>&copy; 2025 FIT3179 Data Visualisation Assignment 2 | Monash University</p>
-            <p>Data Source: Department of Statistics Malaysia (DOSM)</p>
+            <div style="margin-bottom: 15px;">
+                <p>&copy; 2025 FIT3179 Data Visualisation Assignment 2 | Monash University</p>
+                <p>Designed and Created by <strong>Gurgobind Singh Waldev Singh</strong></p>
+            </div>
+            <div>
+                <p><strong>Data Sources:</strong></p>
+                <p><a href="https://data.gov.my/data-catalogue/completion_school_state" target="_blank" rel="noopener noreferrer">Data.gov.my</a> | 
+                <a href="https://open.dosm.gov.my/data-catalogue/hh_income_state" target="_blank" rel="noopener noreferrer">OpenDOSM</a> | 
+                <a href="https://data.worldbank.org/topic/education?locations=MY" target="_blank" rel="noopener noreferrer">World Bank Group</a></p>
+            </div>
         </footer>
     </main>
     

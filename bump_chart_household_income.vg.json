@@ -216,6 +216,43 @@
           "value": "#666666"
         }
       }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "strokeDash": [5, 5],
+        "color": "#FF6B6B",
+        "opacity": 0.6
+      },
+      "data": {
+        "values": [
+          {"year": 2020}
+        ]
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dy": -10,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#FF6B6B"
+      },
+      "data": {
+        "values": [
+          {"year": 2020, "rank": 0.3, "text": "COVID-19 Impact"}
+        ]
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "rank", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
     }
   ],
   "config": {

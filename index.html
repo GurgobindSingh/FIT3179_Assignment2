@@ -25,7 +25,7 @@
             margin: 0;
             -webkit-text-size-adjust: 100%;
             background-color: #f5f5f5;
-            font-family: "Times New Roman", Times, serif;
+            font-family: Arial, sans-serif;
             color: #333;
         }
 
@@ -38,14 +38,27 @@
             background: #f5f5f5;
             border-bottom: 1px solid #ddd;
             z-index: 1000;
-            font-family: "Courier New", Courier, monospace;
+            font-family: "Times New Roman", Times, serif;
             text-align: center;
-            padding: 16px 10px;
+            padding: 20px 10px 16px 10px;
             color: #222;
-            letter-spacing: 0.5px;
-            font-size: 42px;
             margin: 0 auto;
             box-sizing: border-box;
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .sub-title {
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+            color: #555;
         }
 
         /* Main content wrapper */
@@ -78,6 +91,8 @@
             line-height: 1.8;
             margin-bottom: 15px;
             color: #444;
+            text-align: justify;
+            max-width: 650px;
         }
 
         /* Two-column layout for chart + explanation */
@@ -106,7 +121,7 @@
             line-height: 1.6;
             padding-top: 16px;
             color: #333;
-            font-family: "Montserrat", sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         /* Full width layout for wider charts */
@@ -142,6 +157,8 @@
             line-height: 1.7;
             color: #555;
             margin-bottom: 20px;
+            text-align: justify;
+            max-width: 450px;
         }
 
         .viz-insights {
@@ -166,6 +183,8 @@
         .viz-insights li {
             margin-bottom: 8px;
             line-height: 1.6;
+            text-align: justify;
+            max-width: 450px;
         }
 
         /* Metadata section */
@@ -259,7 +278,8 @@
 
         /* Responsive design */
         @media (max-width: 1920px) {
-            .top-banner { font-size: 36px; }
+            .main-title { font-size: 42px; }
+            .sub-title { font-size: 22px; }
             main { padding: 12px; }
         }
 
@@ -277,13 +297,15 @@
         }
 
         @media (max-width: 1200px) {
-            .top-banner { font-size: 28px; }
+            .main-title { font-size: 36px; }
+            .sub-title { font-size: 20px; }
             .intro-section { padding: 30px 25px; }
             .viz-row, .viz-row-full { padding: 25px; }
         }
 
         @media (max-width: 768px) {
-            .top-banner { font-size: 24px; }
+            .main-title { font-size: 28px; }
+            .sub-title { font-size: 16px; }
             .intro-section { padding: 20px; }
             .viz-row, .viz-row-full { padding: 20px; }
             .viz-question { font-size: 1.2em; }
@@ -294,7 +316,8 @@
 <body>
     <!-- Top banner -->
     <div class="top-banner">
-        Malaysia's Socioeconomic Landscape: Income & Education (2016-2022)
+        <div class="main-title">MIND THE GAP</div>
+        <div class="sub-title">Education and Income Inequality in Malaysia</div>
     </div>
     
     <main>

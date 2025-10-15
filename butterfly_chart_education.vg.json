@@ -36,64 +36,47 @@
   },
   "transform": [
     {
-      "calculate": "datum.stage === 'primary' ? 'Primary' : datum.stage === 'secondary_lower' ? 'Secondary (Lower)' : 'Secondary (Upper)'",
-      "as": "stage_label"
+      "calculate": "datum.sex === 'male' ? -(datum['average completion rate'] - 88) : datum['average completion rate'] - 88",
+      "as": "signed_rate"
     },
     {
-      "calculate": "datum.sex === 'male' ? 'Male' : 'Female'",
-      "as": "gender_label"
+      "calculate": "datum.stage === 'primary' ? 'Primary' : datum.stage === 'secondary_lower' ? 'Secondary (Lower)' : 'Secondary (Upper)'",
+      "as": "stage_label"
     }
   ],
-  "mark": {
-    "type": "bar",
-    "cornerRadius": 3
-  },
-  "encoding": {
-    "x": {
-      "field": "stage_label",
-      "type": "nominal",
-      "title": "Education Level",
-      "sort": ["Primary", "Secondary (Lower)", "Secondary (Upper)"],
-      "axis": {
-        "labelAngle": 0,
-        "labelFontSize": 12,
-        "titleFontSize": 14,
-        "titlePadding": 15
-      }
-    },
-    "y": {
-      "field": "average completion rate",
-      "type": "quantitative",
-      "title": "Average Completion Rate (%)",
-      "scale": {
-        "domain": [88, 100],
-        "zero": false
-      },
-      "axis": {
-        "labelFontSize": 12,
-        "titleFontSize": 14,
-        "titlePadding": 15,
-        "grid": true,
-        "gridOpacity": 0.3
-      }
-    },
-    "y2": {
-      "datum": 88
-    },
-    "xOffset": {
-      "field": "gender_label",
-      "type": "nominal",
-      "sort": ["Male", "Female"]
-    },
-    "color": {
-      "field": "gender_label",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Male", "Female"],
-        "range": ["#4A90E2", "#E94B8A"]
-      },
-      "legend": null
-    },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "stage_label",
+          "type": "nominal",
+          "axis": null,
+          "sort": ["Primary", "Secondary (Lower)", "Secondary (Upper)"]
+        },
+        "x": {
+          "field": "signed_rate",
+          "type": "quantitative",
+          "axis": {
+            "title": "Average Completion Rate (%)",
+            "values": [-12, -10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10, 12],
+            "labelExpr": "abs(datum.value) + 88",
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          },
+          "scale": {
+            "domain": [-12, 12]
+          }
+        },
+        "color": {
+          "field": "sex",
+          "type": "nominal",
+          "scale": {
+            "domain": ["male", "female"],
+            "range": ["#4A90E2", "#E94B8A"]
+          },
+          "legend": null
+        },
     "tooltip": [
       {
         "field": "gender_label",
@@ -112,7 +95,38 @@
         "format": ".2f"
       }
     ]
-  }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [{"op": "max", "field": "stage_label", "as": "stage_label"}],
+          "groupby": ["stage_label"]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "fontWeight": "bold",
+        "fontSize": 11
+      },
+      "encoding": {
+        "y": {
+          "field": "stage_label",
+          "type": "nominal",
+          "sort": ["Primary", "Secondary (Lower)", "Secondary (Upper)"]
+        },
+        "x": {
+          "datum": 0,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "stage_label",
+          "type": "nominal"
+        }
+      }
+    }
+      ]
     }
   ],
   "config": {

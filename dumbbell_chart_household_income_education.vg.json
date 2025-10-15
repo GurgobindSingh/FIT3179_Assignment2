@@ -13,251 +13,217 @@
   ],
   "vconcat": [
     {
-      "width": 600,
-      "height": 30,
-      "data": {
-        "values": [{}]
-      },
+      "width": 700,
+      "height": 50,
+      "data": {"values": [{}]},
       "layer": [
         {
-          "mark": {
-            "type": "text",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "align": "center"
-          },
+          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Gap Between "},
-            "x": {"value": 220},
-            "y": {"value": 10},
+            "x": {"value": 50},
+            "y": {"value": 15},
             "color": {"value": "black"}
           }
         },
         {
-          "mark": {
-            "type": "text",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "align": "center"
-          },
+          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Household Income"},
-            "x": {"value": 330},
-            "y": {"value": 10},
+            "x": {"value": 177},
+            "y": {"value": 15},
             "color": {"value": "#0072B2"}
           }
         },
         {
-          "mark": {
-            "type": "text",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "align": "center"
-          },
+          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": " and "},
-            "x": {"value": 420},
-            "y": {"value": 10},
+            "x": {"value": 268},
+            "y": {"value": 15},
             "color": {"value": "black"}
           }
         },
         {
-          "mark": {
-            "type": "text",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "align": "center"
-          },
+          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Upper Secondary"},
-            "x": {"value": 520},
-            "y": {"value": 10},
+            "x": {"value": 352},
+            "y": {"value": 15},
             "color": {"value": "#E69F00"}
           }
         },
         {
-          "mark": {
-            "type": "text",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "align": "center"
-          },
+          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
           "encoding": {
-            "text": {"value": "Completion Rate by State (2016-2022)"},
-            "x": {"value": 300},
-            "y": {"value": 28},
+            "text": {"value": "Completion Rate by State (2016–2022)"},
+            "x": {"value": 566},
+            "y": {"value": 15},
             "color": {"value": "black"}
           }
         }
       ]
     },
     {
-      "width": 600,
-      "height": 400,
-      "data": {
-        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/dumbbell_chart_household_income_education.csv"
-      },
-      "transform": [
+      "hconcat": [
         {
-          "filter": "datum.year == YearSelect"
-        }
-      ],
-      "encoding": {
-    "y": {
-      "field": "state",
-      "type": "nominal",
-      "title": "State",
-      "sort": {
-        "field": "completion_norm",
-        "op": "mean",
-        "order": "descending"
-      }
-    }
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "rule",
-        "color": "#666666",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "income_median_norm",
-          "type": "quantitative",
-          "title": null,
-          "scale": {
-            "domain": [0, 100]
-          }
-        },
-        "x2": {
-          "field": "completion_norm"
-        },
-        "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "year", "type": "quantitative", "title": "Year"},
-          {"field": "completion_norm", "type": "quantitative", "title": "Education Completion (Normalized)", "format": ".2f"},
-          {"field": "income_median_norm", "type": "quantitative", "title": "Household Income (Normalized)", "format": ".2f"}
-        ]
-      }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 150
-      },
-      "encoding": {
-        "x": {
-          "field": "completion_norm",
-          "type": "quantitative",
-          "title": "Normalized Value: [(x − min) / (max − min)] × 100",
-          "scale": {
-            "domain": [0, 100]
-          }
-        },
-        "color": {
-          "value": "#E69F00"
-        },
-        "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "year", "type": "quantitative", "title": "Year"},
-          {"field": "completion_norm", "type": "quantitative", "title": "Education Completion (Normalized)", "format": ".2f"}
-        ]
-      }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 150
-      },
-      "encoding": {
-        "x": {
-          "field": "income_median_norm",
-          "type": "quantitative",
-          "scale": {
-            "domain": [0, 100]
-          }
-        },
-        "color": {
-          "value": "#0072B2"
-        },
-        "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "year", "type": "quantitative", "title": "Year"},
-          {"field": "income_median_norm", "type": "quantitative", "title": "Household Income (Normalized)", "format": ".2f"}
-        ]
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -10,
-        "fontSize": 10
-      },
-      "encoding": {
-        "x": {
-          "field": "completion_norm",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "completion_norm",
-          "type": "quantitative",
-          "format": ".1f"
-        },
-        "color": {
-          "value": "#E69F00"
-        },
-        "opacity": {
-          "condition": {
-            "test": "datum.state == 'Kuala Lumpur' || datum.state == 'Putrajaya' || datum.state == 'Selangor'",
-            "value": 1
+          "width": 600,
+          "height": 400,
+          "data": {
+            "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/dumbbell_chart_household_income_education.csv"
           },
-          "value": 0
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 10,
-        "fontSize": 10
-      },
-      "encoding": {
-        "x": {
-          "field": "income_median_norm",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "income_median_norm",
-          "type": "quantitative",
-          "format": ".1f"
-        },
-        "color": {
-          "value": "#0072B2"
-        },
-        "opacity": {
-          "condition": {
-            "test": "datum.state == 'Kuala Lumpur' || datum.state == 'Putrajaya' || datum.state == 'Selangor'",
-            "value": 1
+          "transform": [{"filter": "datum.year == YearSelect"}],
+          "encoding": {
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "title": "State",
+              "sort": {"field": "completion_norm", "op": "mean", "order": "descending"}
+            },
+            "x": {
+              "type": "quantitative",
+              "title": "Normalized Value (%)",
+              "scale": {"domain": [0, 100]},
+              "axis": {
+                "grid": true,
+                "tickCount": 6,
+                "titleFontSize": 12,
+                "labelFontSize": 11
+              }
+            }
           },
-          "value": 0
+          "layer": [
+            {
+              "mark": {"type": "rule", "color": "#666666", "strokeWidth": 2},
+              "encoding": {
+                "x": {"field": "income_median_norm"},
+                "x2": {"field": "completion_norm"},
+                "tooltip": [
+                  {"field": "state", "title": "State"},
+                  {"field": "year", "title": "Year"},
+                  {
+                    "field": "completion_norm",
+                    "title": "Education Completion (Normalized)",
+                    "format": ".2f"
+                  },
+                  {
+                    "field": "income_median_norm",
+                    "title": "Household Income (Normalized)",
+                    "format": ".2f"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {"type": "point", "filled": true, "size": 150, "color": "#E69F00"},
+              "encoding": {
+                "x": {"field": "completion_norm"},
+                "tooltip": [
+                  {"field": "state", "title": "State"},
+                  {
+                    "field": "completion_norm",
+                    "title": "Education Completion (Normalized)",
+                    "format": ".2f"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {"type": "point", "filled": true, "size": 150, "color": "#0072B2"},
+              "encoding": {
+                "x": {"field": "income_median_norm"},
+                "tooltip": [
+                  {"field": "state", "title": "State"},
+                  {
+                    "field": "income_median_norm",
+                    "title": "Household Income (Normalized)",
+                    "format": ".2f"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "right", "dx": -15, "dy": -12, "fontSize": 9, "color": "#E69F00"},
+              "encoding": {
+                "x": {"field": "completion_norm"},
+                "text": {"field": "completion_norm", "format": ".1f"},
+                "opacity": {
+                  "condition": {
+                    "test": "datum.state == 'Putrajaya' || datum.state == 'Selangor'",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "dx": 15, "dy": -12, "fontSize": 9, "color": "#0072B2"},
+              "encoding": {
+                "x": {"field": "income_median_norm"},
+                "text": {"field": "income_median_norm", "format": ".1f"},
+                "opacity": {
+                  "condition": {
+                    "test": "datum.state == 'Kuala Lumpur' || datum.state == 'Selangor'",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "width": 200,
+          "height": 400,
+          "data": {"values": [{}]},
+          "layer": [
+            {
+              "mark": {
+                "type": "rect",
+                "color": "#f9f9f9",
+                "stroke": "#cccccc",
+                "strokeWidth": 1.5,
+                "cornerRadius": 8,
+                "x": 5,
+                "x2": 290,
+                "y": 5,
+                "y2": 85
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 11, "fontWeight": "bold"},
+              "encoding": {
+                "x": {"value": 12},
+                "y": {"value": 13},
+                "text": {"value": "Normalization:"},
+                "color": {"value": "#333"}
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 10, "font": "monospace"},
+              "encoding": {
+                "x": {"value": 12},
+                "y": {"value": 33},
+                "text": {"value": "[(x−min)/(max−min)]×100"},
+                "color": {"value": "#0066cc"}
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 10, "lineHeight": 14},
+              "encoding": {
+                "x": {"value": 12},
+                "y": {"value": 55},
+                "text": {"value": "Scales both variables\nto 0–100 for direct\ncomparison."},
+                "color": {"value": "#555"}
+              }
+            }
+          ]
         }
-      }
-    }
       ]
     }
   ],
   "config": {
-    "view": {
-      "stroke": "transparent"
-    },
-    "axis": {
-      "labelFontSize": 11,
-      "titleFontSize": 12
-    }
+    "view": {"stroke": "transparent"},
+    "axis": {"labelFontSize": 11, "titleFontSize": 12}
   }
 }

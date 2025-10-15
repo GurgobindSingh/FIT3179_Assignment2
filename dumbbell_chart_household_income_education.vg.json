@@ -1,0 +1,263 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "params": [
+    {
+      "name": "YearSelect",
+      "value": 2022,
+      "bind": {
+        "input": "select",
+        "options": [2016, 2019, 2020, 2022],
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "width": 600,
+      "height": 30,
+      "data": {
+        "values": [{}]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "align": "center"
+          },
+          "encoding": {
+            "text": {"value": "Gap Between "},
+            "x": {"value": 220},
+            "y": {"value": 10},
+            "color": {"value": "black"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "align": "center"
+          },
+          "encoding": {
+            "text": {"value": "Household Income"},
+            "x": {"value": 330},
+            "y": {"value": 10},
+            "color": {"value": "#0072B2"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "align": "center"
+          },
+          "encoding": {
+            "text": {"value": " and "},
+            "x": {"value": 420},
+            "y": {"value": 10},
+            "color": {"value": "black"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "align": "center"
+          },
+          "encoding": {
+            "text": {"value": "Upper Secondary"},
+            "x": {"value": 520},
+            "y": {"value": 10},
+            "color": {"value": "#E69F00"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "align": "center"
+          },
+          "encoding": {
+            "text": {"value": "Completion Rate by State (2016-2022)"},
+            "x": {"value": 300},
+            "y": {"value": 28},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 600,
+      "height": 400,
+      "data": {
+        "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/dumbbell_chart_household_income_education.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == YearSelect"
+        }
+      ],
+      "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State",
+      "sort": {
+        "field": "completion_norm",
+        "op": "mean",
+        "order": "descending"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#666666",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "income_median_norm",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "domain": [0, 100]
+          }
+        },
+        "x2": {
+          "field": "completion_norm"
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "completion_norm", "type": "quantitative", "title": "Education Completion (Normalized)", "format": ".2f"},
+          {"field": "income_median_norm", "type": "quantitative", "title": "Household Income (Normalized)", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150
+      },
+      "encoding": {
+        "x": {
+          "field": "completion_norm",
+          "type": "quantitative",
+          "title": "Normalized Value: [(x − min) / (max − min)] × 100",
+          "scale": {
+            "domain": [0, 100]
+          }
+        },
+        "color": {
+          "value": "#E69F00"
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "completion_norm", "type": "quantitative", "title": "Education Completion (Normalized)", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150
+      },
+      "encoding": {
+        "x": {
+          "field": "income_median_norm",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 100]
+          }
+        },
+        "color": {
+          "value": "#0072B2"
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "income_median_norm", "type": "quantitative", "title": "Household Income (Normalized)", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 10
+      },
+      "encoding": {
+        "x": {
+          "field": "completion_norm",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "completion_norm",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "value": "#E69F00"
+        },
+        "opacity": {
+          "condition": {
+            "test": "datum.state == 'Kuala Lumpur' || datum.state == 'Putrajaya' || datum.state == 'Selangor'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 10
+      },
+      "encoding": {
+        "x": {
+          "field": "income_median_norm",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "income_median_norm",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "value": "#0072B2"
+        },
+        "opacity": {
+          "condition": {
+            "test": "datum.state == 'Kuala Lumpur' || datum.state == 'Putrajaya' || datum.state == 'Selangor'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    }
+  }
+}

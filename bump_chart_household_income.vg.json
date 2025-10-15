@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Top Income Competition: KL Maintains Lead as Putrajaya and Selangor Battle for Second (2016-2022)",
+    "text": "Income Inequality: Top 3 vs Bottom 3 States in Malaysia (2016-2022)",
     "fontSize": 16,
     "font": "Arial",
     "anchor": "middle",
@@ -21,13 +21,16 @@
   },
   "transform": [
     {
+      "filter": "datum.state == 'Kuala Lumpur' || datum.state == 'Putrajaya' || datum.state == 'Selangor' || datum.state == 'Kelantan' || datum.state == 'Kedah' || datum.state == 'Perak'"
+    },
+    {
       "window": [{"op": "rank", "as": "rank"}],
       "sort": [{"field": "income_median", "order": "descending"}],
       "groupby": ["year"],
       "frame": [null, null]
     },
     {
-      "calculate": "datum.state == 'Putrajaya' ? 1 : datum.state == 'Kuala Lumpur' ? 2 : datum.state == 'Selangor' ? 3 : 0",
+      "calculate": "datum.state == 'Kuala Lumpur' ? 1 : datum.state == 'Putrajaya' ? 2 : datum.state == 'Selangor' ? 3 : 0",
       "as": "highlight"
     }
   ],
@@ -52,8 +55,8 @@
         "y": {
           "field": "rank",
           "type": "quantitative",
-          "title": "Rank (1=Highest, 16=Lowest Income)",
-          "scale": {"domain": [0.5, 16.5], "reverse": true},
+          "title": "Rank (1=Highest, 6=Lowest Income)",
+          "scale": {"domain": [0.5, 6.5], "reverse": true},
           "axis": {
             "tickMinStep": 1,
             "labelFontSize": 11,

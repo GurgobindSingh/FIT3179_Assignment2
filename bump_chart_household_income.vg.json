@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Malaysian States Household Income Ranking Over Time (2016-2022)",
+    "fontSize": 16,
+    "font": "Arial",
+    "anchor": "middle",
+    "color": "#333333"
+  },
+  "width": 700,
+  "height": 650,
+  "data": {
+    "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/bump_chart_household_income.csv"
+  },
+  "transform": [
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "income_median", "order": "descending"}],
+      "groupby": ["year"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": false,
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 12,
+            "titleFontSize": 13
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank (1=Highest, 16=Lowest Income)",
+          "scale": {"domain": [0.5, 16.5], "reverse": true},
+          "axis": {
+            "tickMinStep": 1,
+            "labelFontSize": 11,
+            "titleFontSize": 13
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "legend": {
+            "title": "State",
+            "titleFontSize": 12,
+            "labelFontSize": 10,
+            "orient": "right",
+            "columns": 1
+          },
+          "scale": {
+            "range": [
+              "#0072B2", "#E69F00", "#009E73", "#F0E442", "#CC79A7", "#56B4E9",
+              "#D55E00", "#999999", "#882255", "#44AA99", "#117733", "#88CCEE",
+              "#DDCC77", "#AA4499", "#332288", "#661100"
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "rank", "type": "quantitative", "title": "Rank"},
+          {
+            "field": "income_median",
+            "type": "quantitative",
+            "title": "Median Household Income (RM)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 100,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "rank", "type": "quantitative"},
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "range": [
+              "#0072B2", "#E69F00", "#009E73", "#F0E442", "#CC79A7", "#56B4E9",
+              "#D55E00", "#999999", "#882255", "#44AA99", "#117733", "#88CCEE",
+              "#DDCC77", "#AA4499", "#332288", "#661100"
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "rank", "type": "quantitative", "title": "Rank"},
+          {
+            "field": "income_median",
+            "type": "quantitative",
+            "title": "Median Household Income (RM)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 10,
+        "fontWeight": "normal"
+      },
+      "transform": [
+        {"filter": "datum.year == 2016"}
+      ],
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "rank", "type": "quantitative"},
+        "text": {"field": "state", "type": "nominal"},
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "range": [
+              "#0072B2", "#E69F00", "#009E73", "#F0E442", "#CC79A7", "#56B4E9",
+              "#D55E00", "#999999", "#882255", "#44AA99", "#117733", "#88CCEE",
+              "#DDCC77", "#AA4499", "#332288", "#661100"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 10,
+        "fontWeight": "normal"
+      },
+      "transform": [
+        {"filter": "datum.year == 2022"}
+      ],
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "rank", "type": "quantitative"},
+        "text": {"field": "state", "type": "nominal"},
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "range": [
+              "#0072B2", "#E69F00", "#009E73", "#F0E442", "#CC79A7", "#56B4E9",
+              "#D55E00", "#999999", "#882255", "#44AA99", "#117733", "#88CCEE",
+              "#DDCC77", "#AA4499", "#332288", "#661100"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": true, "gridOpacity": 0.3}
+  }
+}

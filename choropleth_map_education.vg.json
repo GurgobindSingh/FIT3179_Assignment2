@@ -6,7 +6,7 @@
     "fontWeight": "bold",
     "anchor": "start"
   },
-  "width": 700,
+  "width": 800,
   "height": 500,
   "projection": {"type": "equalEarth"},
   "params": [
@@ -65,9 +65,28 @@
           "as": "Completion_Level"
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.5},
+      "params": [
+        {
+          "name": "hover",
+          "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+        },
+        {
+          "name": "completion_sel",
+          "select": {"type": "point", "fields": ["Completion_Level"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": {"type": "geoshape"},
       "encoding": {
         "shape": {"field": "geo", "type": "geojson"},
+        "stroke": {
+          "condition": {"param": "hover", "value": "black"},
+          "value": "#ffffff"
+        },
+        "strokeWidth": {
+          "condition": {"param": "hover", "value": 2},
+          "value": 0.5
+        },
         "color": {
           "field": "Completion_Level",
           "type": "ordinal",
@@ -86,7 +105,7 @@
           }
         },
         "opacity": {
-          "condition": {"selection": "completion_sel", "value": 1},
+          "condition": {"param": "completion_sel", "value": 1},
           "value": 0.2
         },
         "tooltip": [
@@ -96,13 +115,6 @@
           {"field": "stage", "type": "nominal", "title": "Education Stage"},
           {"field": "year", "type": "ordinal", "title": "Year"}
         ]
-      },
-      "selection": {
-        "completion_sel": {
-          "type": "multi",
-          "fields": ["Completion_Level"],
-          "bind": "legend"
-        }
       }
     },
     {

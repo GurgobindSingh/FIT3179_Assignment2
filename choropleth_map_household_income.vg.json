@@ -27,12 +27,7 @@
         "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/malaysia_map.topojson",
         "format": {"type": "topojson", "feature": "ne_10m_graticules_1"}
       },
-      "mark": {
-        "type": "geoshape",
-        "stroke": "#cccccc",
-        "strokeWidth": 0.5,
-        "fill": null
-      }
+      "mark": {"type": "geoshape", "stroke": "#cccccc", "strokeWidth": 0.5, "fill": null}
     },
     {
       "data": {
@@ -40,9 +35,7 @@
         "format": {"type": "csv"}
       },
       "transform": [
-        {
-          "filter": "toNumber(datum.year) == selected_year"
-        },
+        {"filter": "toNumber(datum.year) == selected_year"},
         {
           "lookup": "state",
           "from": {
@@ -54,10 +47,7 @@
           },
           "as": "geo"
         },
-        {
-          "calculate": "toNumber(datum['income_median'])",
-          "as": "Median_Income"
-        },
+        {"calculate": "toNumber(datum['income_median'])", "as": "Median_Income"},
         {
           "calculate": "datum['Median_Income'] <= 4000 ? 'Low (≤ RM4k)' : datum['Median_Income'] <= 6000 ? 'Lower-Middle (RM4k–6k)' : datum['Median_Income'] <= 8000 ? 'Upper-Middle (RM6k–8k)' : datum['Median_Income'] <= 10000 ? 'High (RM8k–10k)' : 'Very High (> RM10k)'",
           "as": "Income_Level"
@@ -65,10 +55,7 @@
       ],
       "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.5},
       "encoding": {
-        "shape": {
-          "field": "geo",
-          "type": "geojson"
-        },
+        "shape": {"field": "geo", "type": "geojson"},
         "color": {
           "field": "Income_Level",
           "type": "ordinal",
@@ -92,12 +79,23 @@
             "offset": 20
           }
         },
+        "opacity": {
+          "condition": {"selection": "income_sel", "value": 1},
+          "value": 0.2
+        },
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
           {"field": "Median_Income", "type": "quantitative", "format": ",", "title": "Median Income (RM)"},
           {"field": "Income_Level", "type": "nominal", "title": "Income Category"},
           {"field": "year", "type": "ordinal", "title": "Year"}
         ]
+      },
+      "selection": {
+        "income_sel": {
+          "type": "multi",
+          "fields": ["Income_Level"],
+          "bind": "legend"
+        }
       }
     },
     {
@@ -109,9 +107,7 @@
           {"year": 2022, "annotation": "💡 Key Insight: Recovery begins — KL at RM10,234, Selangor nearly RM10k, but rural gap remains", "lon": 101.5, "lat": 7.5}
         ]
       },
-      "transform": [
-        {"filter": "datum.year == selected_year"}
-      ],
+      "transform": [{"filter": "datum.year == selected_year"}],
       "mark": {
         "type": "text",
         "align": "left",
@@ -130,9 +126,7 @@
     },
     {
       "data": {
-        "values": [
-          {"lon": 102.25, "lat": 6.13, "label": "Lowest Income"}
-        ]
+        "values": [{"lon": 102.25, "lat": 6.13, "label": "Lowest Income"}]
       },
       "mark": {
         "type": "text",

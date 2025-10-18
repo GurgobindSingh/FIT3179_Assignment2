@@ -566,39 +566,25 @@
         // Embed all visualizations
         
         // Line Chart
-        vegaEmbed('#line-chart', 'line_chart_household_income_education.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#line-chart', 'line_chart_household_income_education.vg.json', {actions: false}).catch(console.error);
         
         // Choropleth Map - Income
-        vegaEmbed('#choropleth-income', 'choropleth_map_household_income.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#choropleth-income', 'choropleth_map_household_income.vg.json', {actions: false}).catch(console.error);
         
         // Choropleth Map - Education
-        vegaEmbed('#choropleth-education', 'choropleth_map_education.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#choropleth-education', 'choropleth_map_education.vg.json', {actions: false}).catch(console.error);
         
         // Dumbbell Chart
-        vegaEmbed('#dumbbell-chart', 'dumbbell_chart_household_income_education.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#dumbbell-chart', 'dumbbell_chart_household_income_education.vg.json', {actions: false}).catch(console.error);
         
         // Bump Chart - Income
-        vegaEmbed('#bump-income', 'bump_chart_household_income.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#bump-income', 'bump_chart_household_income.vg.json', {actions: false}).catch(console.error);
         
         // Bump Chart - Education
-        vegaEmbed('#bump-education', 'bump_chart_education.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#bump-education', 'bump_chart_education.vg.json', {actions: false}).catch(console.error);
         
         // Butterfly Chart
-        vegaEmbed('#butterfly-chart', 'butterfly_chart_education.vg.json', {
-            actions: {export: true, source: false, editor: false}
-        }).catch(console.error);
+        vegaEmbed('#butterfly-chart', 'butterfly_chart_education.vg.json', {actions: false}).catch(console.error);
     </script>
 </body>
 </html>

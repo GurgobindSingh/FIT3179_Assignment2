@@ -1,10 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": {
-    "text": "Median Household Income by State, Malaysia",
-    "fontSize": 20,
+    "text": "Median Household Income by State, Malaysia (2016-2022)",
+    "fontSize": 30,
     "fontWeight": "bold",
-    "anchor": "start"
+    "anchor": "start",
+    "offset": 20
   },
   "params": [
     {
@@ -92,15 +93,18 @@
             "range": ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]
           },
           "legend": {
-            "title": "Household Income (RM)",
-            "titleFontSize": 11,
-            "labelFontSize": 10,
-            "symbolSize": 200,
-            "orient": "right",
-            "direction": "vertical",
+            "title": ["Median Monthly Household Income (RM)"],
+            "titleFontSize": 16,
+            "labelFontSize": 13,
+            "symbolSize": 300,
+            "orient": "top",
+            "direction": "horizontal",
             "offset": 10,
-            "titleLimit": 120,
-            "labelLimit": 80
+            "titleLimit": 400,
+            "labelLimit": 150,
+            "columnPadding": 20,
+            "symbolOffset": 10,
+            "titlePadding": 15
           }
         },
         "opacity": {

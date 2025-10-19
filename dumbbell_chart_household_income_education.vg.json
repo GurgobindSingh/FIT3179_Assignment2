@@ -189,53 +189,6 @@
               }
             }
           ]
-        },
-        {
-          "width": 200,
-          "height": 650,
-          "data": {"values": [{}]},
-          "layer": [
-            {
-              "mark": {
-                "type": "rect",
-                "color": "#f9f9f9",
-                "stroke": "#cccccc",
-                "strokeWidth": 1.5,
-                "cornerRadius": 8,
-                "x": 5,
-                "x2": 290,
-                "y": 5,
-                "y2": 85
-              }
-            },
-            {
-              "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 11, "fontWeight": "bold"},
-              "encoding": {
-                "x": {"value": 12},
-                "y": {"value": 13},
-                "text": {"value": "Normalization:"},
-                "color": {"value": "#333"}
-              }
-            },
-            {
-              "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 10, "font": "monospace"},
-              "encoding": {
-                "x": {"value": 12},
-                "y": {"value": 33},
-                "text": {"value": "[(x−min)/(max−min)]×100"},
-                "color": {"value": "#0066cc"}
-              }
-            },
-            {
-              "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 10, "lineHeight": 14},
-              "encoding": {
-                "x": {"value": 12},
-                "y": {"value": 55},
-                "text": {"value": "Scales both variables\nto 0–100 for direct\ncomparison."},
-                "color": {"value": "#555"}
-              }
-            }
-          ]
         }
       ]
     }

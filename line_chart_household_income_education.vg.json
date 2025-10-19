@@ -2,11 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Household Income and Education Completion Trends (2016-2022)",
-    "fontSize": 16,
-    "font": "Arial",
+    "fontSize": 30,
+    "fontWeight": "bold",
     "anchor": "start",
-    "dx": 30,
-    "dy": -10
+    "offset": 20
   },
   "width": 700,
   "height": 420,
@@ -53,7 +52,20 @@
             "domain": ["Primary", "Lower Secondary", "Upper Secondary", "Income"],
             "range": ["#0072B2", "#E69F00", "#56B4E9", "#000000"]
           },
-          "legend": {"title": "Category", "orient": "right", "offset": 10}
+          "legend": {
+            "title": ["Education & Income Categories"],
+            "titleFontSize": 16,
+            "labelFontSize": 13,
+            "symbolSize": 300,
+            "orient": "top",
+            "direction": "horizontal",
+            "offset": 30,
+            "titleLimit": 400,
+            "labelLimit": 150,
+            "columnPadding": 20,
+            "symbolOffset": 10,
+            "titlePadding": 15
+          }
         },
         "tooltip": [
           {"field": "year ", "type": "temporal", "timeUnit": "year", "title": "Year", "format": "%Y"},
@@ -88,7 +100,20 @@
             "domain": ["Primary", "Lower Secondary", "Upper Secondary", "Income"],
             "range": ["#0072B2", "#E69F00", "#56B4E9", "#000000"]
           },
-          "legend": {"title": "Category", "orient": "right", "offset": 10}
+          "legend": {
+            "title": ["Education & Income Categories"],
+            "titleFontSize": 16,
+            "labelFontSize": 13,
+            "symbolSize": 300,
+            "orient": "top",
+            "direction": "horizontal",
+            "offset": 10,
+            "titleLimit": 400,
+            "labelLimit": 150,
+            "columnPadding": 20,
+            "symbolOffset": 10,
+            "titlePadding": 15
+          }
         },
         "tooltip": [
           {"field": "year ", "type": "temporal", "timeUnit": "year", "title": "Year", "format": "%Y"},

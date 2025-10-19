@@ -18,7 +18,7 @@
       "data": {"values": [{}]},
       "layer": [
         {
-          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Gap Between "},
             "x": {"value": 50},
@@ -27,37 +27,37 @@
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Household Income"},
-            "x": {"value": 177},
+            "x": {"value": 269},
             "y": {"value": 15},
             "color": {"value": "#0072B2"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
           "encoding": {
-            "text": {"value": " and "},
-            "x": {"value": 268},
+            "text": {"value": " & "},
+            "x": {"value": 408},
             "y": {"value": 15},
             "color": {"value": "black"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Upper Secondary"},
-            "x": {"value": 352},
+            "x": {"value": 537},
             "y": {"value": 15},
             "color": {"value": "#E69F00"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 16, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Completion Rate by State (2016–2022)"},
-            "x": {"value": 566},
+            "x": {"value": 910},
             "y": {"value": 15},
             "color": {"value": "black"}
           }
@@ -67,8 +67,8 @@
     {
       "hconcat": [
         {
-          "width": 600,
-          "height": 650,
+          "width": 900,
+          "height": 500,
           "data": {
             "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/dumbbell_chart_household_income_education.csv"
           },

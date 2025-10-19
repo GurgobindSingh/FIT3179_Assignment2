@@ -32,7 +32,7 @@
       "frame": [null, null]
     },
     {
-      "calculate": "datum.state == 'Kuala Lumpur' ? 1 : datum.state == 'Putrajaya' ? 2 : datum.state == 'Selangor' ? 3 : 0",
+      "calculate": "datum.state == 'Kuala Lumpur' ? 1 : datum.state == 'Putrajaya' ? 2 : datum.state == 'Selangor' ? 3 : datum.state == 'Kelantan' ? 4 : datum.state == 'Kedah' ? 5 : datum.state == 'Perak' ? 6 : 0",
       "as": "highlight"
     }
   ],
@@ -73,15 +73,27 @@
           "condition": [
             {
               "test": "datum.highlight == 1",
-              "value": "#FFD700"
+              "value": "#B8860B"
             },
             {
               "test": "datum.highlight == 2",
-              "value": "#C0C0C0"
+              "value": "#708090"
             },
             {
               "test": "datum.highlight == 3",
-              "value": "#CD7F32"
+              "value": "#8B4513"
+            },
+            {
+              "test": "datum.highlight == 4",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 5",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 6",
+              "value": "#000000"
             }
           ],
           "value": "#666666"
@@ -120,15 +132,27 @@
           "condition": [
             {
               "test": "datum.highlight == 1",
-              "value": "#FFD700"
+              "value": "#B8860B"
             },
             {
               "test": "datum.highlight == 2",
-              "value": "#C0C0C0"
+              "value": "#708090"
             },
             {
               "test": "datum.highlight == 3",
-              "value": "#CD7F32"
+              "value": "#8B4513"
+            },
+            {
+              "test": "datum.highlight == 4",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 5",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 6",
+              "value": "#000000"
             }
           ],
           "value": "#666666"
@@ -171,15 +195,27 @@
           "condition": [
             {
               "test": "datum.highlight == 1",
-              "value": "#FFD700"
+              "value": "#B8860B"
             },
             {
               "test": "datum.highlight == 2",
-              "value": "#C0C0C0"
+              "value": "#708090"
             },
             {
               "test": "datum.highlight == 3",
-              "value": "#CD7F32"
+              "value": "#8B4513"
+            },
+            {
+              "test": "datum.highlight == 4",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 5",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 6",
+              "value": "#000000"
             }
           ],
           "value": "#666666"
@@ -204,15 +240,27 @@
           "condition": [
             {
               "test": "datum.highlight == 1",
-              "value": "#FFD700"
+              "value": "#B8860B"
             },
             {
               "test": "datum.highlight == 2",
-              "value": "#C0C0C0"
+              "value": "#708090"
             },
             {
               "test": "datum.highlight == 3",
-              "value": "#CD7F32"
+              "value": "#8B4513"
+            },
+            {
+              "test": "datum.highlight == 4",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 5",
+              "value": "#000000"
+            },
+            {
+              "test": "datum.highlight == 6",
+              "value": "#000000"
             }
           ],
           "value": "#666666"

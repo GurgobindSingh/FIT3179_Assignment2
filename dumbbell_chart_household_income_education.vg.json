@@ -111,11 +111,11 @@
                 "x2": {"field": "completion_norm"},
                 "color": {
                   "condition": [
-                    {"test": "datum.gap_rank == 1", "value": "#FFD700"},
-                    {"test": "datum.gap_rank == 2", "value": "#C0C0C0"},
-                    {"test": "datum.gap_rank == 3", "value": "#CD7F32"}
+                    {"test": "datum.gap_rank == 1", "value": "#B8860B"},
+                    {"test": "datum.gap_rank == 2", "value": "#708090"},
+                    {"test": "datum.gap_rank == 3", "value": "#8B4513"}
                   ],
-                  "value": "#666666"
+                  "value": "#000000"
                 },
                 "tooltip": [
                   {"field": "state", "title": "State"},

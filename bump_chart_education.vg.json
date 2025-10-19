@@ -32,7 +32,7 @@
       "frame": [null, null]
     },
     {
-      "calculate": "datum.state == 'Putrajaya' ? 1 : datum.state == 'Pulau Pinang' ? 2 : datum.state == 'Negeri Sembilan' ? 3 : 0",
+      "calculate": "datum.state == 'Putrajaya' ? 1 : datum.state == 'Pulau Pinang' ? 2 : datum.state == 'Negeri Sembilan' ? 3 : datum.state == 'Kuala Lumpur' ? 4 : datum.state == 'Melaka' ? 5 : datum.state == 'Perlis' ? 6 : 0",
       "as": "highlight"
     }
   ],
@@ -69,9 +69,12 @@
         "detail": {"field": "state", "type": "nominal"},
         "color": {
           "condition": [
-            {"test": "datum.highlight == 1", "value": "#FFD700"},
-            {"test": "datum.highlight == 2", "value": "#C0C0C0"},
-            {"test": "datum.highlight == 3", "value": "#CD7F32"}
+            {"test": "datum.highlight == 1", "value": "#B8860B"},
+            {"test": "datum.highlight == 2", "value": "#708090"},
+            {"test": "datum.highlight == 3", "value": "#8B4513"},
+            {"test": "datum.highlight == 4", "value": "#000000"},
+            {"test": "datum.highlight == 5", "value": "#000000"},
+            {"test": "datum.highlight == 6", "value": "#000000"}
           ],
           "value": "#666666"
         },
@@ -99,9 +102,12 @@
         "y": {"field": "rank", "type": "quantitative"},
         "color": {
           "condition": [
-            {"test": "datum.highlight == 1", "value": "#FFD700"},
-            {"test": "datum.highlight == 2", "value": "#C0C0C0"},
-            {"test": "datum.highlight == 3", "value": "#CD7F32"}
+            {"test": "datum.highlight == 1", "value": "#B8860B"},
+            {"test": "datum.highlight == 2", "value": "#708090"},
+            {"test": "datum.highlight == 3", "value": "#8B4513"},
+            {"test": "datum.highlight == 4", "value": "#000000"},
+            {"test": "datum.highlight == 5", "value": "#000000"},
+            {"test": "datum.highlight == 6", "value": "#000000"}
           ],
           "value": "#666666"
         },
@@ -131,9 +137,12 @@
         "text": {"field": "state", "type": "nominal"},
         "color": {
           "condition": [
-            {"test": "datum.highlight == 1", "value": "#FFD700"},
-            {"test": "datum.highlight == 2", "value": "#C0C0C0"},
-            {"test": "datum.highlight == 3", "value": "#CD7F32"}
+            {"test": "datum.highlight == 1", "value": "#B8860B"},
+            {"test": "datum.highlight == 2", "value": "#708090"},
+            {"test": "datum.highlight == 3", "value": "#8B4513"},
+            {"test": "datum.highlight == 4", "value": "#000000"},
+            {"test": "datum.highlight == 5", "value": "#000000"},
+            {"test": "datum.highlight == 6", "value": "#000000"}
           ],
           "value": "#666666"
         }
@@ -148,9 +157,12 @@
         "text": {"field": "state", "type": "nominal"},
         "color": {
           "condition": [
-            {"test": "datum.highlight == 1", "value": "#FFD700"},
-            {"test": "datum.highlight == 2", "value": "#C0C0C0"},
-            {"test": "datum.highlight == 3", "value": "#CD7F32"}
+            {"test": "datum.highlight == 1", "value": "#B8860B"},
+            {"test": "datum.highlight == 2", "value": "#708090"},
+            {"test": "datum.highlight == 3", "value": "#8B4513"},
+            {"test": "datum.highlight == 4", "value": "#000000"},
+            {"test": "datum.highlight == 5", "value": "#000000"},
+            {"test": "datum.highlight == 6", "value": "#000000"}
           ],
           "value": "#666666"
         }

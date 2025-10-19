@@ -6,9 +6,6 @@
     "fontWeight": "bold",
     "anchor": "start"
   },
-  "width": 800,
-  "height": 500,
-  "projection": {"type": "equalEarth"},
   "params": [
     {
       "name": "selected_year",
@@ -31,6 +28,12 @@
       }
     }
   ],
+  "vconcat": [
+    {
+      "width": 900,
+      "height": 500,
+      "projection": {"type": "equalEarth"},
+      "view": {"stroke": "black", "strokeWidth": 2, "fill": "#e6f3ff"},
   "layer": [
     {
       "data": {
@@ -95,13 +98,15 @@
             "range": ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]
           },
           "legend": {
-            "title": "Education Completion Rate",
-            "titleFontSize": 14,
-            "labelFontSize": 12,
-            "symbolSize": 400,
+            "title": "Completion Rate",
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+            "symbolSize": 200,
             "orient": "right",
             "direction": "vertical",
-            "offset": 20
+            "offset": 10,
+            "titleLimit": 120,
+            "labelLimit": 80
           }
         },
         "opacity": {
@@ -176,21 +181,21 @@
     {
       "data": {
         "values": [
-          {"year": 2016, "stage": "primary", "annotation": "💡 Strong primary education: Most states >99% completion", "lon": 101.5, "lat": 7.5},
-          {"year": 2016, "stage": "secondary_lower", "annotation": "💡 Lower secondary challenge: Labuan 78%, Sabah 90%", "lon": 101.5, "lat": 7.5},
-          {"year": 2016, "stage": "secondary_upper", "annotation": "💡 Upper secondary gap: Perlis 91%, Putrajaya 109%", "lon": 101.5, "lat": 7.5},
-          {"year": 2017, "stage": "primary", "annotation": "💡 Primary excellence maintained across all states", "lon": 101.5, "lat": 7.5},
-          {"year": 2017, "stage": "secondary_lower", "annotation": "💡 Remarkable improvement: Labuan jumps to 99%, Putrajaya leads 108%", "lon": 101.5, "lat": 7.5},
-          {"year": 2017, "stage": "secondary_upper", "annotation": "💡 Pahang faces challenges: Drops to 90.8% completion", "lon": 101.5, "lat": 7.5},
-          {"year": 2019, "stage": "primary", "annotation": "💡 Primary steady: KL lowest at 91.6%, most states near 100%", "lon": 101.5, "lat": 7.5},
-          {"year": 2019, "stage": "secondary_lower", "annotation": "💡 Federal territories excel: Putrajaya, Terengganu >100%", "lon": 101.5, "lat": 7.5},
-          {"year": 2019, "stage": "secondary_upper", "annotation": "💡 Notable: Kelantan surges to 109.2% completion rate!", "lon": 101.5, "lat": 7.5},
-          {"year": 2020, "stage": "primary", "annotation": "💡 COVID-19 starts: Primary rates remain strong >95%", "lon": 101.5, "lat": 7.5},
-          {"year": 2020, "stage": "secondary_lower", "annotation": "💡 Pandemic impact: Some states show slight decline", "lon": 101.5, "lat": 7.5},
-          {"year": 2020, "stage": "secondary_upper", "annotation": "💡 Major drop: Johor falls to 89.2%, pandemic disruption", "lon": 101.5, "lat": 7.5},
-          {"year": 2022, "stage": "primary", "annotation": "💡 Post-pandemic recovery: Primary education stabilizes", "lon": 101.5, "lat": 7.5},
-          {"year": 2022, "stage": "secondary_lower", "annotation": "💡 Bounce back: Most states return to 95-100% range", "lon": 101.5, "lat": 7.5},
-          {"year": 2022, "stage": "secondary_upper", "annotation": "💡 Recovery ongoing: Most states above 95%, gradual improvement", "lon": 101.5, "lat": 7.5}
+          {"year": 2016, "stage": "primary", "annotation": "💡 Strong primary education with most states achieving over 99% completion", "lon": 101.5, "lat": 8.2},
+          {"year": 2016, "stage": "secondary_lower", "annotation": "💡 Lower secondary challenges evident with Labuan at 78% and Sabah at 90%", "lon": 101.5, "lat": 8.2},
+          {"year": 2016, "stage": "secondary_upper", "annotation": "💡 Upper secondary shows wide gaps from Perlis 91% to Putrajaya 109%", "lon": 101.5, "lat": 8.2},
+          {"year": 2017, "stage": "primary", "annotation": "💡 Primary education excellence maintained across all states", "lon": 101.5, "lat": 8.2},
+          {"year": 2017, "stage": "secondary_lower", "annotation": "💡 Remarkable improvement as Labuan jumps to 99% while Putrajaya leads at 108%", "lon": 101.5, "lat": 8.2},
+          {"year": 2017, "stage": "secondary_upper", "annotation": "💡 Pahang faces challenges with a drop to 90.8% completion", "lon": 101.5, "lat": 8.2},
+          {"year": 2019, "stage": "primary", "annotation": "💡 Primary education remains steady with KL lowest at 91.6% and most states near 100%", "lon": 101.5, "lat": 8.2},
+          {"year": 2019, "stage": "secondary_lower", "annotation": "💡 Federal territories excel with Putrajaya and Terengganu exceeding 100%", "lon": 101.5, "lat": 8.2},
+          {"year": 2019, "stage": "secondary_upper", "annotation": "💡 Notable achievement as Kelantan surges to 109.2% completion rate", "lon": 101.5, "lat": 8.2},
+          {"year": 2020, "stage": "primary", "annotation": "💡 COVID-19 pandemic begins but primary rates remain strong above 95%", "lon": 101.5, "lat": 8.2},
+          {"year": 2020, "stage": "secondary_lower", "annotation": "💡 Pandemic impact becomes visible as some states show slight decline", "lon": 101.5, "lat": 8.2},
+          {"year": 2020, "stage": "secondary_upper", "annotation": "💡 Major pandemic disruption with Johor falling to 89.2%", "lon": 101.5, "lat": 8.2},
+          {"year": 2022, "stage": "primary", "annotation": "💡 Post-pandemic recovery underway as primary education stabilizes", "lon": 101.5, "lat": 8.2},
+          {"year": 2022, "stage": "secondary_lower", "annotation": "💡 Education system bounces back with most states returning to 95-100% range", "lon": 101.5, "lat": 8.2},
+          {"year": 2022, "stage": "secondary_upper", "annotation": "💡 Recovery continues with most states above 95% showing gradual improvement", "lon": 101.5, "lat": 8.2}
         ]
       },
       "transform": [
@@ -201,9 +206,9 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "fontSize": 12,
-        "fontWeight": "normal",
-        "color": "#2c7bb6",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#de2d26",
         "dx": 5,
         "dy": 5
       },
@@ -212,6 +217,8 @@
         "latitude": {"field": "lat", "type": "quantitative"},
         "text": {"field": "annotation", "type": "nominal"}
       }
+    }
+      ]
     }
   ]
 }

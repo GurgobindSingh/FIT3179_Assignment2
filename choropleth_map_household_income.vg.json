@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": {
-    "text": "Median Household Income by State, Malaysia (Select Year)",
+    "text": "Median Household Income by State, Malaysia",
     "fontSize": 20,
     "fontWeight": "bold",
     "anchor": "start"

@@ -108,11 +108,9 @@
         "type": "text",
         "align": "center",
         "fontWeight": "bold",
-        "fontSize": 13,
+        "fontSize": 14,
         "font": "sans-serif",
-        "fill": "#FFFFFF",
-        "stroke": "#000000",
-        "strokeWidth": 1
+        "fill": "#000000"
       },
       "encoding": {
         "y": {

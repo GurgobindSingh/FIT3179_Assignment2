@@ -24,7 +24,7 @@
         body {
             margin: 0 auto;
             -webkit-text-size-adjust: 100%;
-            background-color: #f5f5f5;
+            background-color: white;
             font-family: Arial, sans-serif;
             color: #333;
             width: 1700px;
@@ -37,7 +37,7 @@
             top: 0;
             width: 1700px;
             max-width: 1920px;
-            background: #f5f5f5;
+            background: white;
             border-bottom: 1px solid #ddd;
             z-index: 1000;
             font-family: "Times New Roman", Times, serif;
@@ -98,57 +98,75 @@
             max-width: 650px;
         }
 
-        /* Two-column layout for chart + explanation */
-        .viz-row {
+        /* Header section layout */
+        .header-wrapper {
             display: flex;
-            gap: 20px;
+            gap: 40px;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* Left column for headers and content */
+        .left-column {
+            flex: 1 1 65%;
+            max-width: 975px;
+        }
+
+        /* Right column for headers and content */
+        .right-column {
+            flex: 1 1 35%;
+            max-width: 500px;
+        }
+
+        .section-title-left {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .section-title-right {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        /* Individual chart-description pair */
+        .chart-description-pair {
+            display: flex;
+            gap: 40px;
             align-items: flex-start;
             width: 100%;
             margin-bottom: 50px;
-            background-color: white;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
+        /* Chart containers */
         .viz-chart {
             flex: 1 1 65%;
             max-width: 975px;
-            padding-right: 24px;
-            padding-top: 16px;
-            box-sizing: border-box;
         }
 
+        .viz-chart-full {
+            flex: 1 1 65%;
+            max-width: 975px;
+        }
+
+        /* Text containers */
         .viz-text {
             flex: 1 1 35%;
             max-width: 500px;
             line-height: 1.6;
-            padding-top: 16px;
             color: #333;
             font-family: Arial, sans-serif;
-        }
-
-        /* Full width layout for wider charts */
-        .viz-row-full {
             display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 50px;
-            background-color: white;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .viz-chart-full {
-            flex: 1 1 100%;
-            max-width: 1460px;
-            padding-right: 10px;
-            padding-top: 16px;
-            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .viz-question {
-            font-size: 1.4em;
+            font-size: 30px;
             color: #764ba2;
             font-weight: 700;
             margin-bottom: 15px;
@@ -334,36 +352,34 @@
     </div>
     
     <main>
-        <!-- Introduction -->
-        <section class="intro-section">
-            <div style="display: flex; gap: 40px; align-items: flex-start;">
-                <div style="flex: 1;">
-                    <h2 style="color: #667eea; margin-bottom: 20px;">Malaysia's Socioeconomic Journey</h2>
-                    <p style="line-height: 2.2; font-size: 1.1em;">
-                        Malaysia's diverse states tell unique development stories.<br>
-                        Sixteen regions showcase varying income and education levels.<br>
-                        Seven years of data reveal fascinating regional patterns.<br>
-                        Economic prosperity doesn't always guarantee educational success.<br>
-                        Geographic location influences both wealth and learning opportunities.<br>
-                        COVID-19 disrupted traditional socioeconomic growth trajectories significantly.
-                    </p>
-                </div>
-                <div style="flex: 1;">
-                    <h2 style="color: #764ba2; margin-bottom: 20px;">🔍 Did You Know?</h2>
-                    <p style="line-height: 2.2; font-size: 1.1em; font-style: italic; color: #666;">
-                        Some wealthy Malaysian states surprisingly lag in education.<br>
-                        Female students consistently outperform males across education levels.<br>
-                        Certain states dramatically climbed household income rankings recently.<br>
-                        Geographic patterns reveal unexpected development corridors in Malaysia.<br>
-                        Three states dominate both wealth and education metrics.<br>
-                        Income growth doesn't always match educational advancement rates.
-                    </p>
-                </div>
+        <!-- Header Section -->
+        <div class="header-wrapper">
+            <div class="left-column">
+                <h2 class="section-title-left">Malaysia's Socioeconomic Journey</h2>
+                <p style="line-height: 2.2; font-size: 1.1em;">
+                    Malaysia's diverse states tell unique development stories.<br>
+                    Sixteen regions showcase varying income and education levels.<br>
+                    Seven years of data reveal fascinating regional patterns.<br>
+                    Economic prosperity doesn't always guarantee educational success.<br>
+                    Geographic location influences both wealth and learning opportunities.<br>
+                    COVID-19 disrupted traditional socioeconomic growth trajectories significantly.
+                </p>
             </div>
-        </section>
-        
+            <div class="right-column">
+                <h2 class="section-title-right">🔍 Did You Know?</h2>
+                <p style="line-height: 2.2; font-size: 1.1em; font-style: italic; color: #666;">
+                    Some wealthy Malaysian states surprisingly lag in education.<br>
+                    Female students consistently outperform males across education levels.<br>
+                    Certain states dramatically climbed household income rankings recently.<br>
+                    Geographic patterns reveal unexpected development corridors in Malaysia.<br>
+                    Three states dominate both wealth and education metrics.<br>
+                    Income growth doesn't always match educational advancement rates.
+                </p>
+            </div>
+        </div>
+
         <!-- Chart 1: Line Chart -->
-        <div class="viz-row">
+        <div class="chart-description-pair">
             <div class="viz-chart">
                 <div id="line-chart"></div>
             </div>
@@ -382,9 +398,9 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Chart 2: Choropleth Map - Household Income -->
-        <div class="viz-row">
+
+        <!-- Chart 2: Choropleth Map - Income -->
+        <div class="chart-description-pair">
             <div class="viz-chart">
                 <div id="choropleth-income"></div>
             </div>
@@ -402,9 +418,9 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Chart 3: Choropleth Map - Education -->
-        <div class="viz-row">
+        <div class="chart-description-pair">
             <div class="viz-chart">
                 <div id="choropleth-education"></div>
             </div>
@@ -422,6 +438,7 @@
                 </div>
             </div>
         </div>
+
         
         <!-- Color Legend Section -->
         <section style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; margin: 40px 0; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -452,9 +469,9 @@
                 Colors represent performance rankings in bump charts and gap sizes in dumbbell chart
             </p>
         </section>
-        
+
         <!-- Chart 4: Dumbbell Chart -->
-        <div class="viz-row">
+        <div class="chart-description-pair">
             <div class="viz-chart">
                 <div id="dumbbell-chart"></div>
             </div>
@@ -474,9 +491,9 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Chart 5: Bump Chart - Income -->
-        <div class="viz-row-full">
+        <div class="chart-description-pair">
             <div class="viz-chart-full">
                 <div id="bump-income"></div>
             </div>
@@ -494,9 +511,9 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Chart 6: Bump Chart - Education -->
-        <div class="viz-row-full">
+        <div class="chart-description-pair">
             <div class="viz-chart-full">
                 <div id="bump-education"></div>
             </div>
@@ -514,9 +531,9 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Chart 7: Butterfly Chart -->
-        <div class="viz-row">
+        <div class="chart-description-pair">
             <div class="viz-chart">
                 <div id="butterfly-chart"></div>
             </div>
@@ -534,6 +551,7 @@
                 </div>
             </div>
         </div>
+
         
         <!-- Footer -->
         <footer>

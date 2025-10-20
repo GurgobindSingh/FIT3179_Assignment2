@@ -22,551 +22,512 @@
         }
         
         body {
-            margin: 0 auto;
-            -webkit-text-size-adjust: 100%;
-            background-color: white;
-            font-family: Arial, sans-serif;
-            color: #333;
-            width: 1700px;
-            max-width: 1920px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
-        /* Top banner */
-        .top-banner {
-            position: sticky;
-            top: 0;
-            width: 1700px;
-            max-width: 1920px;
-            background: white;
-            border-bottom: 1px solid #ddd;
-            z-index: 1000;
-            font-family: "Times New Roman", Times, serif;
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            padding: 20px 10px 16px 10px;
-            color: #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
             margin: 0 auto;
-            box-sizing: border-box;
+            padding: 0 20px;
         }
 
-        .main-title {
-            font-size: 84px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            line-height: 1.2;
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
         }
 
-        .sub-title {
-            font-size: 42px;
-            font-weight: normal;
-            letter-spacing: 0.5px;
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: -20px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .intro-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 6px solid #667eea;
+            position: relative;
+        }
+
+        
+        .intro-card.insights {
+            border-left-color: #764ba2;
+        }
+
+        .intro-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .intro-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: #555;
         }
 
-        /* Main content wrapper */
-        main {
-            display: block;
-            padding: 20px;
-            width: 1700px;
-            max-width: 1920px;
-            margin: 0 auto;
-            box-sizing: border-box;
+        /* Navigation Pills */
+        .nav-section {
+            background: #f8f9fa;
+            padding: 30px 0;
+            border-radius: 15px;
+            margin-bottom: 40px;
         }
 
-        /* Introduction section */
-        .intro-section {
-            background-color: white;
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            background: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #667eea;
+            font-size: 0.9rem;
+        }
+
+        .nav-pill:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Visualization Section */
+        .viz-section {
+            margin-bottom: 80px;
+        }
+
+        .viz-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+            border: 1px solid #e9ecef;
+        }
+
+        .viz-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .viz-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .viz-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0;
+            min-height: 500px;
+        }
+
+        .viz-chart-container {
             padding: 40px;
-            margin-bottom: 40px;
-            border-left: 5px solid #667eea;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        
-        .intro-section h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 700;
-        }
-        
-        .intro-section p {
-            font-size: 1.05em;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            color: #444;
-            text-align: justify;
-            max-width: 650px;
-        }
-
-        /* Header section layout */
-        .header-wrapper {
+            background: #fafbfc;
             display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 40px;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Left column for headers and content */
-        .left-column {
-            flex: 1 1 65%;
-            max-width: 975px;
-        }
-
-        /* Right column for headers and content */
-        .right-column {
-            flex: 1 1 35%;
-            max-width: 500px;
-        }
-
-        .section-title-left {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 700;
-        }
-
-        .section-title-right {
-            color: #764ba2;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 700;
-        }
-
-        /* Individual chart-description pair */
-        .chart-description-pair {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 50px;
-        }
-
-        /* Chart containers */
-        .viz-chart {
-            flex: 1 1 65%;
-            max-width: 975px;
-        }
-
-        .viz-chart-full {
-            flex: 1 1 65%;
-            max-width: 975px;
-        }
-
-        /* Text containers */
-        .viz-text {
-            flex: 1 1 35%;
-            max-width: 500px;
-            line-height: 1.6;
-            color: #333;
-            font-family: Arial, sans-serif;
+        .viz-description-container {
+            padding: 40px;
+            background: white;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .viz-question {
-            font-size: 30px;
-            color: #764ba2;
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-style: italic;
+            justify-content: center;
+            border-left: 3px solid #e9ecef;
         }
 
         .viz-description {
-            font-size: 1.05em;
-            line-height: 1.7;
+            font-size: 1.05rem;
+            line-height: 1.8;
             color: #555;
-            margin-bottom: 20px;
-            text-align: justify;
-            max-width: 450px;
+            text-align: left;
         }
 
-        .viz-insights {
-            background-color: #fff9e6;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 4px solid #ffc107;
-        }
-
-        .viz-insights h4 {
-            color: #f57c00;
-            margin-bottom: 12px;
-            font-size: 1.1em;
+        .viz-description strong {
+            color: #2c3e50;
             font-weight: 600;
         }
 
-        .viz-insights ul {
-            list-style-position: inside;
-            color: #555;
+        /* Full Width Charts */
+        .viz-full-width .viz-content {
+            grid-template-columns: 1fr;
         }
 
-        .viz-insights li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-            text-align: justify;
-            max-width: 450px;
+        .viz-full-width .viz-chart-container {
+            min-height: 600px;
         }
 
-        /* Metadata section */
-        .metadata-section {
-            background-color: #e8f5e9;
+        .viz-full-width .viz-description-container {
+            border-left: none;
+            border-top: 3px solid #e9ecef;
+        }
+
+        /* Color Legend */
+        .color-legend {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 40px;
-            margin-top: 60px;
-            border: 2px solid #4caf50;
+            border-radius: 20px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
-        
-        .metadata-section h2 {
-            color: #2e7d32;
+
+        .legend-title {
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 30px;
-            font-size: 1.8em;
-            font-weight: 700;
-        }
-        
-        .metadata-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .metadata-item {
-            background-color: white;
-            padding: 20px;
-            border-left: 3px solid #4caf50;
-        }
-        
-        .metadata-item h3 {
-            color: #2e7d32;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .metadata-item p {
-            color: #555;
-            line-height: 1.6;
-            font-size: 0.95em;
+            color: #2c3e50;
         }
 
-        .author-info {
-            margin-top: 30px;
-            padding: 25px;
-            background-color: white;
+        .legend-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .author-info h3 {
-            color: #2e7d32;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .author-info p {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .author-info a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .author-info a:hover {
-            text-decoration: underline;
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #333;
+        .footer {
+            background: #2c3e50;
             color: white;
-            margin-top: 60px;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
         }
 
-        footer p {
-            margin-bottom: 5px;
-        }
-
-        footer a {
-            color: #4da6ff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #80bfff;
-            text-decoration: underline;
-        }
-
-        /* Ensure embed respects container width */
-        .viz-chart .vega-embed, 
-        .viz-chart .vega-embed > div,
-        .viz-chart-full .vega-embed,
-        .viz-chart-full .vega-embed > div {
+        /* Ensure charts fit properly */
+        .viz-chart-container > div {
             width: 100% !important;
             max-width: 100% !important;
         }
 
-        /* Responsive design */
-        @media (max-width: 1920px) {
-            .main-title { font-size: 42px; }
-            .sub-title { font-size: 22px; }
-            main { padding: 12px; }
+        .viz-chart-container .vega-embed {
+            width: 100% !important;
+            max-width: 100% !important;
         }
 
-        @media (max-width: 1400px) {
-            .viz-row, .viz-row-full { 
-                flex-direction: column; 
-            }
-            .viz-text { 
-                max-width: none; 
-            }
-            .viz-chart {
-                max-width: 100%;
-                padding-right: 0;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 1200px) {
-            .main-title { font-size: 36px; }
-            .sub-title { font-size: 20px; }
-            .intro-section { padding: 30px 25px; }
-            .viz-row, .viz-row-full { padding: 25px; }
+            .hero-title { font-size: 3.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .viz-content { grid-template-columns: 1fr; }
+            .viz-description-container { border-left: none; border-top: 3px solid #e9ecef; }
         }
 
         @media (max-width: 768px) {
-            .main-title { font-size: 28px; }
-            .sub-title { font-size: 16px; }
-            .intro-section { padding: 20px; }
-            .viz-row, .viz-row-full { padding: 20px; }
-            .viz-question { font-size: 1.2em; }
-            .metadata-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .intro-grid { grid-template-columns: 1fr; gap: 30px; }
+            .viz-chart-container, .viz-description-container { padding: 20px; }
+            .legend-items { gap: 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Top banner -->
-    <div class="top-banner">
-        <div class="main-title">From Learning to Earning</div>
-        <div class="sub-title">How Education Drives Household Income in Malaysia</div>
-    </div>
-    
-    <main>
-        <!-- Header Section -->
-        <div class="header-wrapper">
-            <div class="left-column">
-                <h2 class="section-title-left">Malaysia's Socioeconomic Journey</h2>
-                <p style="line-height: 2.2; font-size: 1.1em;">
-                    Malaysia's diverse states tell unique development stories.<br>
-                    Sixteen regions showcase varying income and education levels.<br>
-                    Seven years of data reveal fascinating regional patterns.<br>
-                    Economic prosperity doesn't always guarantee educational success.<br>
-                    Geographic location influences both wealth and learning opportunities.<br>
-                    COVID-19 disrupted traditional socioeconomic growth trajectories significantly.
-                </p>
-            </div>
-            <div class="right-column">
-                <h2 class="section-title-right">🔍 Did You Know?</h2>
-                <p style="line-height: 2.2; font-size: 1.1em; font-style: italic; color: #666;">
-                    Some wealthy Malaysian states surprisingly lag in education.<br>
-                    Female students consistently outperform males across education levels.<br>
-                    Certain states dramatically climbed household income rankings recently.<br>
-                    Geographic patterns reveal unexpected development corridors in Malaysia.<br>
-                    Three states dominate both wealth and education metrics.<br>
-                    Income growth doesn't always match educational advancement rates.
-                </p>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">From Learning to Earning</h1>
+            <p class="hero-subtitle">How Education Drives Household Income in Malaysia</p>
         </div>
+    </section>
 
-        <!-- Chart 1: Line Chart -->
-        <div class="chart-description-pair">
-            <div class="viz-chart">
-                <div id="line-chart"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">How have household income and education completion evolved over time?</div>
-                <div class="viz-description">
-                    Malaysia's <strong>economic growth</strong> reflects diversification beyond traditional<br>
-                    industries while <strong>education stability</strong> stems from sustained<br>
-                    government infrastructure investment across the nation.<br>
-                    The <strong>pandemic</strong> revealed Malaysia's vulnerability to supply<br>
-                    chain disruptions yet education systems adapted<br>
-                    through <strong>digital learning platform</strong> implementations successfully.<br>
-                    <strong>Recovery</strong> occurred through government stimulus and infrastructure<br>
-                    spending as educational investment creates <strong>skilled workforces</strong><br>
-                    attracting higher-paying industries nationwide.
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <h2>🎓 Malaysia's Socioeconomic Journey</h2>
+                    <p>
+                        Malaysia's diverse states tell unique development stories. Sixteen regions showcase varying income and education levels. Seven years of data reveal fascinating regional patterns. Economic prosperity doesn't always guarantee educational success. Geographic location influences both wealth and learning opportunities. COVID-19 disrupted traditional socioeconomic growth trajectories significantly.
+                    </p>
+                </div>
+                <div class="intro-card insights">
+                    <h2>🔍 Did You Know?</h2>
+                    <p>
+                        Some wealthy Malaysian states surprisingly lag in education. Female students consistently outperform males across education levels. Certain states dramatically climbed household income rankings recently. Geographic patterns reveal unexpected development corridors in Malaysia. Three states dominate both wealth and education metrics. Income growth doesn't always match educational advancement rates.
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <!-- Chart 2: Choropleth Map - Income -->
-        <div class="chart-description-pair">
-            <div class="viz-chart">
-                <div id="choropleth-income"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">Where are Malaysia's wealthiest and poorest states located?</div>
-                <div class="viz-description">
-                    <strong>Kuala Lumpur's</strong> wealth stems from concentrated <strong>financial services</strong><br>
-                    while <strong>federal territory clustering</strong> occurs through favorable<br>
-                    government policies and <strong>east coast states</strong> face<br>
-                    geographic challenges with distance barriers significantly.<br>
-                    <strong>Selangor</strong> prospers through <strong>proximity advantages</strong> and shared<br>
-                    infrastructure as <strong>rural-urban disparities</strong> reflect historical<br>
-                    colonial development patterns and <strong>Klang Valley concentration</strong><br>
-                    results from business agglomeration effects.
+            <!-- Navigation -->
+            <div class="nav-section">
+                <div class="nav-pills">
+                    <a href="#trends" class="nav-pill">📈 Trends Over Time</a>
+                    <a href="#geography" class="nav-pill">🗺️ Geographic Patterns</a>
+                    <a href="#gaps" class="nav-pill">📊 Achievement Gaps</a>
+                    <a href="#rankings" class="nav-pill">🏆 State Rankings</a>
+                    <a href="#gender" class="nav-pill">⚖️ Gender Analysis</a>
                 </div>
             </div>
-        </div>
-
-        <!-- Chart 3: Choropleth Map - Education -->
-        <div class="chart-description-pair">
-            <div class="viz-chart">
-                <div id="choropleth-education"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">Which states excel in education completion, and does geography play a role?</div>
-                <div class="viz-description">
-                    <strong>Educational uniformity</strong> results from Malaysia's <strong>centralized education system</strong><br>
-                    while geographic wealth disparities vanish through<br>
-                    <strong>federal education funding</strong> and <strong>rural-urban parity</strong> occurs<br>
-                    through deliberate boarding school policies nationwide.<br>
-                    <strong>Federal equalization</strong> succeeds through constitutional education mandates<br>
-                    as <strong>Putrajaya's</strong> edge reflects concentrated <strong>administrative resources</strong><br>
-                    and strong <strong>institutional frameworks</strong> decouple education<br>
-                    from local economic conditions effectively.
-                </div>
-            </div>
-        </div>
-
-        
-        <!-- Color Legend Section -->
-        <section style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; margin: 40px 0; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <h3 style="text-align: center; color: #333; margin-bottom: 25px; font-size: 1.4em; font-weight: 600;">📊 Chart Color Guide</h3>
-            <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 24px;">🥇</span>
-                    <div style="width: 20px; height: 20px; background-color: #B8860B; border-radius: 50%; border: 2px solid #333;"></div>
-                    <span style="font-weight: 600; color: #333;">1st Place</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 24px;">🥈</span>
-                    <div style="width: 20px; height: 20px; background-color: #708090; border-radius: 50%; border: 2px solid #333;"></div>
-                    <span style="font-weight: 600; color: #333;">2nd Place</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 24px;">🥉</span>
-                    <div style="width: 20px; height: 20px; background-color: #8B4513; border-radius: 50%; border: 2px solid #333;"></div>
-                    <span style="font-weight: 600; color: #333;">3rd Place</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 20px;">⚫</span>
-                    <div style="width: 20px; height: 20px; background-color: #000000; border-radius: 50%; border: 2px solid #333;"></div>
-                    <span style="font-weight: 600; color: #333;">Others</span>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666; font-style: italic; font-size: 0.95em;">
-                Colors represent performance rankings in bump charts and gap sizes in dumbbell chart
-            </p>
         </section>
 
-        <!-- Chart 4: Dumbbell Chart -->
-        <div class="chart-description-pair">
-            <div class="viz-chart">
-                <div id="dumbbell-chart"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">What is the gap between income and education achievement in each state?</div>
-                <div class="viz-description">
-                    <strong>Normalization Formula:</strong> <code>[(x−min)/(max−min)]×100</code> scales both variables<br>
-                    to 0–100 for direct comparison between income and education metrics.<br><br>
-                    <strong>Educational over-performance</strong> occurs through <strong>federal funding</strong> ensuring<br>
-                    uniformity while <strong>federal territories</strong> balance metrics through<br>
-                    concentrated economic opportunities and <strong>large gaps</strong> indicate<br>
-                    cultural values prioritizing educational success consistently.<br>
-                    <strong>Kelantan's</strong> pattern reflects strong <strong>Islamic educational traditions</strong><br>
-                    as <strong>constitutional mandates</strong> prevent states from neglecting<br>
-                    investment and institutional frameworks prevent <strong>local economics</strong><br>
-                    determining educational outcomes nationwide.
+        <!-- Visualization Sections -->
+        <section class="viz-section">
+            <!-- Chart 1: Line Chart -->
+            <div class="viz-container" id="trends">
+                <div class="viz-header">
+                    <h3 class="viz-title">How have household income and education completion evolved over time?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="line-chart"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            Malaysia's <strong>economic growth</strong> reflects diversification beyond traditional industries while <strong>education stability</strong> stems from sustained government infrastructure investment across the nation.<br><br>
+                            
+                            The <strong>pandemic</strong> revealed Malaysia's vulnerability to supply chain disruptions yet education systems adapted through <strong>digital learning platform</strong> implementations successfully.<br><br>
+                            
+                            <strong>Recovery</strong> occurred through government stimulus and infrastructure spending as educational investment creates <strong>skilled workforces</strong> attracting higher-paying industries nationwide.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Chart 5: Bump Chart - Income -->
-        <div class="chart-description-pair">
-            <div class="viz-chart-full">
-                <div id="bump-income"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">How have the richest and poorest states competed for position over time?</div>
-                <div class="viz-description">
-                    <strong style="color: #B8860B;">Kuala Lumpur's</strong> dominance stems from entrenched <strong>financial advantages</strong><br>
-                    while <strong style="color: #8B4513;">Putrajaya</strong>-<strong style="color: #708090;">Selangor</strong> competition reflects <strong>administrative versus manufacturing</strong><br>
-                    dynamics and <strong>persistent bottom rankings</strong> result from<br>
-                    structural geographic challenges limiting development opportunities.<br>
-                    <strong>Economic hierarchy resistance</strong> occurs through wealth's self-reinforcing<br>
-                    cycles as <strong>COVID-19 stability</strong> suggests competitive advantages<br>
-                    remain unchanged and <strong>geographic lock-in</strong> occurs when<br>
-                    initial advantages create long-term dependencies.
+            <!-- Chart 2: Choropleth Map - Income -->
+            <div class="viz-container" id="geography">
+                <div class="viz-header">
+                    <h3 class="viz-title">Where are Malaysia's wealthiest and poorest states located?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="choropleth-income"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            <strong>Kuala Lumpur's</strong> wealth stems from concentrated <strong>financial services</strong> while <strong>federal territory clustering</strong> occurs through favorable government policies and <strong>east coast states</strong> face geographic challenges with distance barriers significantly.<br><br>
+                            
+                            <strong>Selangor</strong> prospers through <strong>proximity advantages</strong> and shared infrastructure as <strong>rural-urban disparities</strong> reflect historical colonial development patterns and <strong>Klang Valley concentration</strong> results from business agglomeration effects.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Chart 6: Bump Chart - Education -->
-        <div class="chart-description-pair">
-            <div class="viz-chart-full">
-                <div id="bump-education"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">Which states lead and lag in education completion, and how stable are these rankings?</div>
-                <div class="viz-description">
-                    <strong>Educational volatility</strong> occurs because <strong>centralized funding</strong> equalizes<br>
-                    resources while <strong>minor percentage variations</strong> matter under<br>
-                    federal standards and <strong>high baseline performance</strong> results<br>
-                    from uniform national curriculum implementations nationwide.<br>
-                    <strong style="color: #8B4513;">Putrajaya's</strong> consistency reflects <strong>administrative advantages</strong> as <strong>ranking volatility</strong><br>
-                    indicates responsive systems promoting competition and<br>
-                    <strong>universal success</strong> demonstrates centralized systems eliminating<br>
-                    geographic disadvantages effectively.
+            <!-- Chart 3: Choropleth Map - Education -->
+            <div class="viz-container">
+                <div class="viz-header">
+                    <h3 class="viz-title">Which states excel in education completion, and does geography play a role?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="choropleth-education"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            <strong>Educational uniformity</strong> results from Malaysia's <strong>centralized education system</strong> while geographic wealth disparities vanish through <strong>federal education funding</strong> and <strong>rural-urban parity</strong> occurs through deliberate boarding school policies nationwide.<br><br>
+                            
+                            <strong>Federal equalization</strong> succeeds through constitutional education mandates as <strong>Putrajaya's</strong> edge reflects concentrated <strong>administrative resources</strong> and strong <strong>institutional frameworks</strong> decouple education from local economic conditions effectively.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Chart 7: Butterfly Chart -->
-        <div class="chart-description-pair">
-            <div class="viz-chart">
-                <div id="butterfly-chart"></div>
-            </div>
-            <div class="viz-text">
-                <div class="viz-question">How do states compare in both income and education simultaneously?</div>
-                <div class="viz-description">
-                    <strong style="color: #E94B8A;">Female</strong> educational advantage emerges from nationwide <strong>cultural shifts</strong><br>
-                    while <strong>gender gaps</strong> expand because <strong style="color: #4A90E2;">males</strong> face<br>
-                    workforce pressures and <strong>primary education similarity</strong> occurs<br>
-                    through compulsory schooling law implementations effectively.<br>
-                    <strong>Secondary disparities</strong> reflect developmental differences as <strong>cultural perceptions</strong><br>
-                    influence <strong style="color: #4A90E2;">male</strong> participation and <strong style="color: #E94B8A;">female</strong> success<br>
-                    transcends demographics through nationwide <strong>policy changes</strong><br>
-                    creating long-term educational advantage patterns.
+            <!-- Color Legend -->
+            <div class="color-legend">
+                <h3 class="legend-title">📊 Chart Color Guide</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span style="font-size: 24px;">🥇</span>
+                        <div style="width: 20px; height: 20px; background-color: #B8860B; border-radius: 50%;"></div>
+                        <span style="font-weight: 600;">1st Place</span>
+                    </div>
+                    <div class="legend-item">
+                        <span style="font-size: 24px;">🥈</span>
+                        <div style="width: 20px; height: 20px; background-color: #708090; border-radius: 50%;"></div>
+                        <span style="font-weight: 600;">2nd Place</span>
+                    </div>
+                    <div class="legend-item">
+                        <span style="font-size: 24px;">🥉</span>
+                        <div style="width: 20px; height: 20px; background-color: #8B4513; border-radius: 50%;"></div>
+                        <span style="font-weight: 600;">3rd Place</span>
+                    </div>
+                    <div class="legend-item">
+                        <span style="font-size: 20px;">⚫</span>
+                        <div style="width: 20px; height: 20px; background-color: #000000; border-radius: 50%;"></div>
+                        <span style="font-weight: 600;">Others</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        
-        <!-- Footer -->
-        <footer>
-            <div style="margin-bottom: 15px;">
-                <p>&copy; 2025 FIT3179 Data Visualisation Assignment 2 | Monash University</p>
-                <p>Designed and Created by <strong>Gurgobind Singh Waldev Singh</strong></p>
+            <!-- Chart 4: Dumbbell Chart -->
+            <div class="viz-container" id="gaps">
+                <div class="viz-header">
+                    <h3 class="viz-title">What is the gap between income and education achievement in each state?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="dumbbell-chart"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            <strong>Normalization Formula:</strong> <code>[(x−min)/(max−min)]×100</code> scales both variables to 0–100 for direct comparison between income and education metrics.<br><br>
+                            
+                            <strong>Educational over-performance</strong> occurs through <strong>federal funding</strong> ensuring uniformity while <strong>federal territories</strong> balance metrics through concentrated economic opportunities and <strong>large gaps</strong> indicate cultural values prioritizing educational success consistently.<br><br>
+                            
+                            <strong>Kelantan's</strong> pattern reflects strong <strong>Islamic educational traditions</strong> as <strong>constitutional mandates</strong> prevent states from neglecting investment and institutional frameworks prevent <strong>local economics</strong> determining educational outcomes nationwide.
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <p><strong>Data Sources:</strong></p>
-                <p><a href="https://data.gov.my/data-catalogue/completion_school_state" target="_blank" rel="noopener noreferrer">Data.gov.my</a> | 
-                <a href="https://open.dosm.gov.my/data-catalogue/hh_income_state" target="_blank" rel="noopener noreferrer">OpenDOSM</a> | 
-                <a href="https://data.worldbank.org/topic/education?locations=MY" target="_blank" rel="noopener noreferrer">World Bank Group</a></p>
+
+            <!-- Chart 5: Bump Chart - Income -->
+            <div class="viz-container" id="rankings">
+                <div class="viz-header">
+                    <h3 class="viz-title">How have the richest and poorest states competed for position over time?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="bump-income"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            <strong style="color: #B8860B;">Kuala Lumpur's</strong> dominance stems from entrenched <strong>financial advantages</strong> while <strong style="color: #8B4513;">Putrajaya</strong>-<strong style="color: #708090;">Selangor</strong> competition reflects <strong>administrative versus manufacturing</strong> dynamics and <strong>persistent bottom rankings</strong> result from structural geographic challenges limiting development opportunities.<br><br>
+                            
+                            <strong>Economic hierarchy resistance</strong> occurs through wealth's self-reinforcing cycles as <strong>COVID-19 stability</strong> suggests competitive advantages remain unchanged and <strong>geographic lock-in</strong> occurs when initial advantages create long-term dependencies.
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </main>
+
+            <!-- Chart 6: Bump Chart - Education -->
+            <div class="viz-container">
+                <div class="viz-header">
+                    <h3 class="viz-title">Which states lead and lag in education completion, and how stable are these rankings?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="bump-education"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            <strong>Educational volatility</strong> occurs because <strong>centralized funding</strong> equalizes resources while <strong>minor percentage variations</strong> matter under federal standards and <strong>high baseline performance</strong> results from uniform national curriculum implementations nationwide.<br><br>
+                            
+                            <strong style="color: #8B4513;">Putrajaya's</strong> consistency reflects <strong>administrative advantages</strong> as <strong>ranking volatility</strong> indicates responsive systems promoting competition and <strong>universal success</strong> demonstrates centralized systems eliminating geographic disadvantages effectively.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 7: Butterfly Chart -->
+            <div class="viz-container" id="gender">
+                <div class="viz-header">
+                    <h3 class="viz-title">How do male and female education completion rates compare across different levels?</h3>
+                </div>
+                <div class="viz-content">
+                    <div class="viz-chart-container">
+                        <div id="butterfly-chart"></div>
+                    </div>
+                    <div class="viz-description-container">
+                        <div class="viz-description">
+                            <strong style="color: #E94B8A;">Female</strong> educational advantage emerges from nationwide <strong>cultural shifts</strong> while <strong>gender gaps</strong> expand because <strong style="color: #4A90E2;">males</strong> face workforce pressures and <strong>primary education similarity</strong> occurs through compulsory schooling law implementations effectively.<br><br>
+                            
+                            <strong>Secondary disparities</strong> reflect developmental differences as <strong>cultural perceptions</strong> influence <strong style="color: #4A90E2;">male</strong> participation and <strong style="color: #E94B8A;">female</strong> success transcends demographics through nationwide <strong>policy changes</strong> creating long-term educational advantage patterns.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="margin-bottom: 15px;">
+            <p>&copy; 2025 FIT3179 Data Visualisation Assignment 2 | Monash University</p>
+            <p>Designed and Created by <strong>Gurgobind Singh Waldev Singh</strong></p>
+        </div>
+        <div>
+            <p><strong>Data Sources:</strong></p>
+            <p><a href="https://data.gov.my/data-catalogue/completion_school_state" target="_blank" rel="noopener noreferrer">Data.gov.my</a> | 
+            <a href="https://open.dosm.gov.my/data-catalogue/hh_income_state" target="_blank" rel="noopener noreferrer">OpenDOSM</a> | 
+            <a href="https://data.worldbank.org/topic/education?locations=MY" target="_blank" rel="noopener noreferrer">World Bank Group</a></p>
+        </div>
+    </footer>
     
     <script>
         // Embed all visualizations

@@ -98,6 +98,37 @@
       }
     },
     {
+      "mark": {
+        "type": "text",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "black"
+      },
+      "transform": [
+        {
+          "calculate": "datum.signed_rate > 0 ? datum.signed_rate + 0.8 : datum.signed_rate - 0.8",
+          "as": "text_position"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "stage_label",
+          "type": "nominal",
+          "sort": ["Primary", "Secondary (Lower)", "Secondary (Upper)"]
+        },
+        "x": {
+          "field": "text_position",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "average completion rate",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
       "transform": [
         {
           "aggregate": [{"op": "max", "field": "stage_label", "as": "stage_label"}],

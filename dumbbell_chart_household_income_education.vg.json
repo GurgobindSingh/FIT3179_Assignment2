@@ -18,46 +18,46 @@
       "data": {"values": [{}]},
       "layer": [
         {
-          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 20, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Gap Between "},
-            "x": {"value": 50},
+            "x": {"value": 30},
             "y": {"value": 15},
             "color": {"value": "black"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 20, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Household Income"},
-            "x": {"value": 269},
+            "x": {"value": 189},
             "y": {"value": 15},
             "color": {"value": "#0072B2"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 20, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": " & "},
-            "x": {"value": 408},
+            "x": {"value": 290},
             "y": {"value": 15},
             "color": {"value": "black"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 20, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Upper Secondary"},
-            "x": {"value": 537},
+            "x": {"value": 387},
             "y": {"value": 15},
             "color": {"value": "#E69F00"}
           }
         },
         {
-          "mark": {"type": "text", "fontSize": 28, "fontWeight": "bold", "align": "center"},
+          "mark": {"type": "text", "fontSize": 20, "fontWeight": "bold", "align": "center"},
           "encoding": {
             "text": {"value": "Completion Rate by State (2016–2022)"},
-            "x": {"value": 910},
+            "x": {"value": 658},
             "y": {"value": 15},
             "color": {"value": "black"}
           }

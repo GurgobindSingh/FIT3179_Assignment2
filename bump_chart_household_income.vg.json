@@ -2,15 +2,15 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Income Inequality: Top 3 vs Bottom 3 States in Malaysia (2016-2022)",
-    "fontSize": 16,
+    "fontSize": 20,
     "font": "Arial",
     "anchor": "start",
     "color": "#333333",
     "dx": 30,
     "dy": 0
   },
-  "width": 700,
-  "height": 650,
+  "width": 900,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/bump_chart_household_income.csv",
     "format": {

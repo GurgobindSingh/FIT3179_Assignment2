@@ -8,15 +8,15 @@
       "data": {
         "values": [
           {"text": "Average Education Completion Rates ", "x": 10, "color": "#000000"},
-          {"text": "Male", "x": 265, "color": "#4A90E2"},
-          {"text": " vs ", "x": 300, "color": "#000000"},
-          {"text": "Female", "x": 319, "color": "#E94B8A"},
-          {"text": " (2016-2022)", "x": 370, "color": "#000000"}
+          {"text": "Male", "x": 370, "color": "#4A90E2"},
+          {"text": " vs ", "x": 420, "color": "#000000"},
+          {"text": "Female", "x": 446, "color": "#E94B8A"},
+          {"text": " (2016-2022)", "x": 519, "color": "#000000"}
         ]
       },
       "mark": {
         "type": "text",
-        "fontSize": 14,
+        "fontSize": 20,
         "fontWeight": "bold",
         "baseline": "middle",
         "align": "left"
@@ -30,7 +30,7 @@
     },
     {
       "width": 900,
-      "height": 300,
+      "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/butterfly_chart_education.csv"
   },

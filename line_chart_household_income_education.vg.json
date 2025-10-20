@@ -2,13 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Household Income and Education Completion Trends (2016-2022)",
-    "fontSize": 30,
+    "fontSize": 20,
     "fontWeight": "bold",
     "anchor": "start",
-    "offset": 20
+    "offset": 20,
+    "dx": 37
   },
-  "width": 700,
-  "height": 420,
+  "width": 900,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/GurgobindSingh/FIT3179_Assignment2/main/line_chart_household_income_education.csv"
   },
@@ -59,12 +60,13 @@
             "symbolSize": 300,
             "orient": "top",
             "direction": "horizontal",
-            "offset": 30,
+            "offset": 10,
             "titleLimit": 400,
             "labelLimit": 150,
             "columnPadding": 20,
             "symbolOffset": 10,
-            "titlePadding": 15
+            "titlePadding": 15,
+            "titleAnchor": "start"
           }
         },
         "tooltip": [
@@ -112,7 +114,8 @@
             "labelLimit": 150,
             "columnPadding": 20,
             "symbolOffset": 10,
-            "titlePadding": 15
+            "titlePadding": 15,
+            "titleAnchor": "start"
           }
         },
         "tooltip": [
@@ -132,7 +135,7 @@
         "type": "text",
         "align": "left",
         "dx": 5,
-        "dy": -220,
+        "dy": -250,
         "fontSize": 10,
         "fontWeight": "bold",
         "color": "gray"
@@ -151,7 +154,7 @@
         "type": "text",
         "align": "left",
         "dx": 5,
-        "dy": -220,
+        "dy": -250,
         "fontSize": 10,
         "fontWeight": "bold",
         "color": "gray"
@@ -170,7 +173,7 @@
         "type": "text",
         "align": "left",
         "dx": 5,
-        "dy": -220,
+        "dy": -250,
         "fontSize": 10,
         "fontWeight": "bold",
         "color": "gray"

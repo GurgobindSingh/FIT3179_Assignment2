@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": {
     "text": "Education Completion Rate by State, Malaysia (2016-2022)",
-    "fontSize": 30,
+    "fontSize": 20,
     "fontWeight": "bold",
     "anchor": "start",
     "offset": 20

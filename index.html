@@ -1,3 +1,4 @@
+<!-- Main HTML document for the dashboard -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From Learning to Earning: How Education Drives Household Income in Malaysia</title>
     
-    <!-- Vega-Lite libraries -->
+    <!-- Load Vega, Vega-Lite, and Vega-Embed libraries for chart rendering -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <!-- Link to external CSS styles -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Vega-Embed for embedding charts -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero Section: Dashboard title and subtitle -->
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">From Learning to Earning</h1>
@@ -20,18 +23,18 @@
         </div>
     </section>
 
-    <!-- Main Container -->
+    <!-- Main Container: Contains all dashboard content -->
     <div class="container">
-        <!-- Introduction Section -->
+    <!-- Introduction Section: Context and key insights -->
         <section class="intro-section">
-            <div class="intro-grid">
-                <div class="intro-card">
+            <div class="intro-grid"> <!-- Two intro cards side by side -->
+                <div class="intro-card"> <!-- Malaysia's Socioeconomic Journey card -->
                     <h2>🎓 Malaysia's Socioeconomic Journey</h2>
                     <p>
                         Malaysia's diverse states tell unique development stories. <strong>Sixteen regions</strong> showcase varying <strong>income</strong> and <strong>education levels</strong>. <strong>Seven years of data</strong> reveal fascinating regional patterns. <strong>Economic prosperity</strong> doesn't always guarantee <strong>educational success</strong>. <strong>Geographic location</strong> influences both <strong>wealth</strong> and <strong>learning opportunities</strong>. <strong>COVID-19</strong> disrupted traditional socioeconomic growth trajectories significantly.
                     </p>
                 </div>
-                <div class="intro-card insights">
+                <div class="intro-card insights"> <!-- Did You Know? card -->
                     <h2>🔍 Did You Know?</h2>
                     <p>
                         Some <strong>wealthy Malaysian states</strong> surprisingly lag in <strong>education</strong>. <strong>Female students</strong> consistently outperform <strong>males</strong> across education levels. Certain states dramatically <strong>climbed household income rankings</strong> recently. <strong>Geographic patterns</strong> reveal unexpected development corridors in Malaysia. <strong>Three states</strong> dominate both <strong>wealth</strong> and <strong>education metrics</strong>. <strong>Income growth</strong> doesn't always match <strong>educational advancement rates</strong>.
@@ -40,9 +43,9 @@
             </div>
         </section>
 
-        <!-- Visualization Sections -->
+    <!-- Visualization Sections: All chart cards -->
         <section class="viz-section">
-            <!-- Chart 1: Line Chart -->
+            <!-- Chart 1: Line Chart: Household income and education completion over time -->
             <div class="viz-container" id="trends">
                 <div class="viz-header">
                     <h3 class="viz-title">How have household income and education completion evolved over time?</h3>
@@ -63,7 +66,7 @@
                 </div>
             </div>
 
-            <!-- Chart 2: Choropleth Map - Income -->
+            <!-- Chart 2: Choropleth Map - Income: Wealthiest and poorest states -->
             <div class="viz-container" id="geography">
                 <div class="viz-header">
                     <h3 class="viz-title">Where are Malaysia's wealthiest and poorest states located?</h3>
@@ -82,7 +85,7 @@
                 </div>
             </div>
 
-            <!-- Chart 3: Choropleth Map - Education -->
+            <!-- Chart 3: Choropleth Map - Education: Education completion by state -->
             <div class="viz-container">
                 <div class="viz-header">
                     <h3 class="viz-title">Which states excel in education completion, and does geography play a role?</h3>
@@ -101,7 +104,7 @@
                 </div>
             </div>
 
-            <!-- Color Legend -->
+            <!-- Color Legend: Explains chart color meanings -->
             <div class="color-legend">
                 <h3 class="legend-title">Chart Color Guide</h3>
                 <div class="legend-items">
@@ -128,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- Chart 4: Dumbbell Chart -->
+            <!-- Chart 4: Dumbbell Chart: Gap between income and education achievement -->
             <div class="viz-container" id="gaps">
                 <div class="viz-header">
                     <h3 class="viz-title">What is the gap between income and education achievement in each state?</h3>
@@ -149,7 +152,7 @@
                 </div>
             </div>
 
-            <!-- Chart 5: Bump Chart - Income -->
+            <!-- Chart 5: Bump Chart - Income: State income rankings over time -->
             <div class="viz-container" id="rankings">
                 <div class="viz-header">
                     <h3 class="viz-title">How have the richest and poorest states competed for position over time?</h3>
@@ -168,7 +171,7 @@
                 </div>
             </div>
 
-            <!-- Chart 6: Bump Chart - Education -->
+            <!-- Chart 6: Bump Chart - Education: State education rankings over time -->
             <div class="viz-container">
                 <div class="viz-header">
                     <h3 class="viz-title">Which states lead and lag in education completion, and how stable are these rankings?</h3>
@@ -187,7 +190,7 @@
                 </div>
             </div>
 
-            <!-- Chart 7: Butterfly Chart -->
+            <!-- Chart 7: Butterfly Chart: Male vs female education completion rates -->
             <div class="viz-container" id="gender">
                 <div class="viz-header">
                     <h3 class="viz-title">How do male and female education completion rates compare across different levels?</h3>
@@ -208,7 +211,7 @@
         </section>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer: Attribution and data sources -->
     <footer class="footer">
         <div style="margin-bottom: 15px;">
             <p>&copy; 2025 FIT3179 Data Visualisation Assignment 2 | Monash University</p>
@@ -223,26 +226,19 @@
     </footer>
     
     <script>
-        // Embed all visualizations
-        
+        // Embed all visualizations using Vega-Embed
         // Line Chart
         vegaEmbed('#line-chart', 'line_chart_household_income_education.vg.json', {actions: false}).catch(console.error);
-        
         // Choropleth Map - Income
         vegaEmbed('#choropleth-income', 'choropleth_map_household_income.vg.json', {actions: false}).catch(console.error);
-        
         // Choropleth Map - Education
         vegaEmbed('#choropleth-education', 'choropleth_map_education.vg.json', {actions: false}).catch(console.error);
-        
         // Dumbbell Chart
         vegaEmbed('#dumbbell-chart', 'dumbbell_chart_household_income_education.vg.json', {actions: false}).catch(console.error);
-        
         // Bump Chart - Income
         vegaEmbed('#bump-income', 'bump_chart_household_income.vg.json', {actions: false}).catch(console.error);
-        
         // Bump Chart - Education
         vegaEmbed('#bump-education', 'bump_chart_education.vg.json', {actions: false}).catch(console.error);
-        
         // Butterfly Chart
         vegaEmbed('#butterfly-chart', 'butterfly_chart_education.vg.json', {actions: false}).catch(console.error);
     </script>

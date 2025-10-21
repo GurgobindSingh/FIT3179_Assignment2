@@ -1,18 +1,23 @@
-/* Footer links stay blue */
+/* ===================== Footer Links ===================== */
+/* Styles for footer links in the footer section */
 .footer a {
     color: #3498db;
     text-decoration: underline;
     transition: color 0.2s;
 }
+/* Hover effect for footer links */
 .footer a:hover {
     color: #217dbb;
 }
-/* Global styles */
+
+/* ===================== Global Styles ===================== */
+/* Reset box model and default margin/padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* Body base styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -20,7 +25,9 @@ body {
     background: #f8f9fa;
     min-height: 100vh;
 }
-/* Hero Section */
+
+/* ===================== Hero Section ===================== */
+/* Main banner container */
 .hero-section {
     background: linear-gradient(135deg, #764ba2 0%, #5f2c82 100%);
     color: white;
@@ -33,6 +40,7 @@ body {
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
     padding: 0 20px 40px 20px;
 }
+/* Overlay for gradient effect */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -43,6 +51,7 @@ body {
     background: rgba(0,0,0,0.1);
     z-index: 1;
 }
+/* Content inside hero section */
 .hero-content {
     position: relative;
     z-index: 2;
@@ -50,6 +59,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+/* Main title in hero section */
 .hero-title {
     font-size: 5.5rem;
     font-weight: 800;
@@ -58,6 +68,7 @@ body {
     letter-spacing: -1px;
     font-family: 'Times New Roman', Times, serif;
 }
+/* Subtitle in hero section */
 .hero-subtitle {
     font-size: 2.5rem;
     font-weight: 500;
@@ -65,7 +76,9 @@ body {
     opacity: 0.95;
     font-family: 'Times New Roman', Times, serif;
 }
-/* Main Container */
+
+/* ===================== Main Container ===================== */
+/* Main dashboard container */
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -78,17 +91,21 @@ body {
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
     margin-bottom: 0;
 }
-/* Introduction Section */
+
+/* ===================== Introduction Section ===================== */
+/* Section for context and insights */
 .intro-section {
     padding: 60px 0;
     background: white;
 }
+/* Grid layout for intro cards */
 .intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-bottom: 10px;
 }
+/* Individual intro card styles */
 .intro-card {
     background: #f8f9fa;
     padding: 40px;
@@ -96,33 +113,40 @@ body {
     border-left: 6px solid #764ba2;
     position: relative;
 }
+/* Special border color for 'Did You Know?' card */
 .intro-card.insights {
     border-left-color: #5f2c82;
 }
+/* Title in intro card */
 .intro-card h2 {
     font-size: 1.9rem;
     margin-bottom: 25px;
     color: #2c3e50;
     font-weight: 700;
 }
+/* Paragraph in intro card */
 .intro-card p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
 }
-/* Navigation Pills */
+
+/* ===================== Navigation Pills ===================== */
+/* Section for navigation pills */
 .nav-section {
     background: #f8f9fa;
     padding: 30px 0;
     border-radius: 15px;
     margin-bottom: 40px;
 }
+/* Container for navigation pills */
 .nav-pills {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
+/* Individual navigation pill styles */
 .nav-pill {
     background: white;
     color: #764ba2;
@@ -134,15 +158,19 @@ body {
     border: 2px solid #764ba2;
     font-size: 0.9rem;
 }
+/* Hover effect for navigation pill */
 .nav-pill:hover {
     background: #764ba2;
     color: white;
     transform: translateY(-2px);
 }
-/* Visualization Section */
+
+/* ===================== Visualization Section ===================== */
+/* Section containing all chart cards */
 .viz-section {
     margin-bottom: 80px;
 }
+/* Chart card container styles */
 .viz-container {
     background: white;
     border-radius: 20px;
@@ -151,12 +179,14 @@ body {
     margin-bottom: 60px;
     border: 1px solid #e9ecef;
 }
+/* Chart card header styles */
 .viz-header {
     background: linear-gradient(135deg, #764ba2 0%, #5f2c82 100%);
     color: white;
     padding: 30px 40px;
     text-align: left;
 }
+/* Chart card title styles */
 .viz-title {
     font-size: 1.8rem;
     font-weight: 600;
@@ -164,12 +194,14 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     text-align: left;
 }
+/* Layout for chart and description side by side */
 .viz-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 0;
     min-height: 500px;
 }
+/* Chart area container styles */
 .viz-chart-container {
     padding: 40px;
     background: #fafbfc;
@@ -177,6 +209,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+/* Description area container styles */
 .viz-description-container {
     padding: 40px;
     background: white;
@@ -185,26 +218,34 @@ body {
     justify-content: center;
     border-left: 3px solid #e9ecef;
 }
+/* Chart description text styles */
 .viz-description {
     font-size: 1.05rem;
     line-height: 1.8;
     color: #555;
     text-align: left;
 }
+/* Emphasized text in chart descriptions */
 .viz-description strong {
     color: #2c3e50;
     font-weight: 600;
 }
+/* Full width chart layout for special charts */
 .viz-full-width .viz-content {
     grid-template-columns: 1fr;
 }
+/* Minimum height for full width charts */
 .viz-full-width .viz-chart-container {
     min-height: 600px;
 }
+/* Description container for full width charts */
 .viz-full-width .viz-description-container {
     border-left: 3px solid #e9ecef;
     border-top: none;
 }
+
+/* ===================== Color Legend ===================== */
+/* Color legend card styles */
 .color-legend {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 40px;
@@ -213,18 +254,21 @@ body {
     text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
+/* Color legend title styles */
 .legend-title {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 30px;
     color: #2c3e50;
 }
+/* Color legend items container */
 .legend-items {
     display: flex;
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
 }
+/* Individual color legend item styles */
 .legend-item {
     display: flex;
     align-items: center;
@@ -234,21 +278,34 @@ body {
     border-radius: 25px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
+
+/* ===================== Footer ===================== */
+/* Footer styles */
 .footer {
     background: #2c3e50;
     color: white;
     padding: 40px 0;
     text-align: center;
-    margin-top: 80px;
+    max-width: 1400px; /* Match .container max-width */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0 0 20px 20px; /* Optional: match container rounded corners */
+    margin-top: 0; /* Remove gap above footer */
 }
+
+/* ===================== Chart Container Sizing ===================== */
+/* Ensure embedded charts fit container */
 .viz-chart-container > div {
     width: 100% !important;
     max-width: 100% !important;
 }
+/* Ensure Vega-Embed charts fit container */
 .viz-chart-container .vega-embed {
     width: 100% !important;
     max-width: 100% !important;
 }
+
+/* ===================== Responsive Styles ===================== */
 @media (max-width: 1200px) {
     .hero-title { font-size: 3.5rem; }
     .hero-subtitle { font-size: 1.5rem; }

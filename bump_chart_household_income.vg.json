@@ -7,7 +7,7 @@
     "anchor": "start",
     "color": "#333333",
     "dx": 30,
-    "dy": 0
+    "dy": -20
   },
   "width": 900,
   "height": 500,
@@ -288,7 +288,7 @@
       "mark": {
         "type": "text",
         "align": "center",
-        "dy": -10,
+        "dy": 11,
         "fontSize": 10,
         "fontWeight": "bold",
         "color": "#FF6B6B"
